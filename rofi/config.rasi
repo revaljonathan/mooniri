@@ -1,0 +1,201 @@
+configuration {
+    modes:              "run,emoji:/usr/bin/rofimoji,ssh,drun";
+    sorting-method:     "normal";
+    show-icons:         true;
+    terminal:           "kitty";
+    editor:             "micro";
+    matching:           "regex";
+    drun-match-fields:  "name";
+    display-run:        " Menu:";
+    display-ssh:        " SSH:";
+    display-drun:       "󰀻 Apps:";
+        display-emoji:		"󱃞 Emoji";
+     kb-move-char-forward: "Right";
+    kb-move-char-back: "Left";
+    kb-mode-next: "Alt+Right";
+    kb-mode-previous: "Alt+Left";
+    
+}
+
+@theme "storm"
+
+/* ── Palette ──────────────────────────────────────────────────────────── */
+* {
+    bg0:     #1a1b26;
+    bg1:     #1f2335;
+    bg2:     #24283b;
+    bg3:     #414868;
+    fg0:     #c0caf5;
+    fg1:     #a9b1d6;
+    fg2:     #737aa2;
+    red:     #f7768e;
+    green:   #9ece6a;
+    yellow:  #e0af68;
+    blue:    #7aa2f7;
+    magenta: #9a7ecc;
+    cyan:    #4abaaf;
+    purple:  #fca7ea;
+
+    accent:  @purple;
+    urgent:  @yellow;
+
+    /* Semantic aliases */
+    background-color:   transparent;
+    text-color:         @fg0;
+}
+
+/* ── Window ───────────────────────────────────────────────────────────── */
+window {
+    width:            620px;
+    background-color: @bg1;
+    border:           2px;
+    border-color:     @accent;
+    border-radius:    10px;
+    padding:          0;
+}
+
+/* ── Main box ─────────────────────────────────────────────────────────── */
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, message, mode-switcher, listview ];
+    spacing:          0;
+    padding:          12px;
+}
+
+/* ── Input bar ────────────────────────────────────────────────────────── */
+inputbar {
+    background-color: @bg2;
+    border-radius:    8px;
+    padding:          10px 14px;
+    margin:           0 0 10px 0;
+    children:         [ prompt, entry ];
+    spacing:          6px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+    font:             "JetBrains Mono Bold 12";
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @fg0;
+    placeholder:      "Search…";
+    placeholder-color: @fg2;
+    font:             "JetBrains Mono 12";
+    cursor:           text;
+}
+
+/* ── Mode switcher ────────────────────────────────────────────────────── */
+mode-switcher {
+    background-color: transparent;
+    margin:           0 0 10px 0;
+    spacing:          6px;
+}
+
+button {
+    background-color: @bg2;
+    text-color:       @fg2;
+    border-radius:    6px;
+    padding:          5px 12px;
+    cursor:           pointer;
+}
+
+button selected {
+    background-color: @accent;
+    text-color:       @bg0;
+}
+
+/* ── List view ────────────────────────────────────────────────────────── */
+listview {
+    background-color: transparent;
+    columns:          1;
+    lines:            8;
+    scrollbar:        true;
+    spacing:          4px;
+    fixed-height:     false;
+}
+
+scrollbar {
+    width:            4px;
+    handle-width:     4px;
+    background-color: @bg2;
+    handle-color:     @accent;
+    border-radius:    4px;
+}
+
+/* ── List elements ────────────────────────────────────────────────────── */
+element {
+    background-color: transparent;
+    text-color:       @fg1;
+    border-radius:    6px;
+    padding:          8px 10px;
+    spacing:          8px;
+    orientation:      horizontal;
+    cursor:           pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       @fg1;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color:       @urgent;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color:       @cyan;
+}
+
+element selected.normal {
+    background-color: @bg3;
+    text-color:       @fg0;
+    border:           0 0 0 3px;
+    border-color:     @accent;
+}
+
+element selected.urgent {
+    background-color: @bg3;
+    text-color:       @urgent;
+    border:           0 0 0 3px;
+    border-color:     @urgent;
+}
+
+element selected.active {
+    background-color: @bg3;
+    text-color:       @cyan;
+    border:           0 0 0 3px;
+    border-color:     @cyan;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             24px;
+    cursor:           inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           inherit;
+    vertical-align:   0.5;
+    font:             "JetBrains Mono 12";
+}
+
+/* ── Message ──────────────────────────────────────────────────────────── */
+message {
+    background-color: @bg2;
+    border-radius:    8px;
+    padding:          8px 12px;
+    margin:           0 0 10px 0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:       @fg2;
+    font:             "JetBrains Mono 1i";
+}

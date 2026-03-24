@@ -1,0 +1,114 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 32, // Waybar height (to be removed for auto height)
+    "width": 1900, // Waybar width
+    "spacing": 6, // Gaps between modules (4px)
+    
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+    	"clock",
+    	"custom/separator",
+    	"battery",
+    	"custom/separator",
+        "pulseaudio",
+        // "custom/separator",
+        "network",
+        "custom/separator",
+        "cpu",
+        "custom/separator",
+        "memory",
+        "custom/separator",
+        "temperature",
+        // "backlight",
+        // "custom/separator",
+        "custom/separator",
+        "custom/spotify"
+    ],
+
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    
+    "sway/window": {
+    "format": "{}",
+    "max-length": 30,
+    "tooltip": true
+},
+
+    
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%A, %d %B %H:%M}"
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": " {temperatureC}°C",
+        "format-icons": ["󰉬", "", "󰉪"]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "󰃞 {percent}%",
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging":" {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "format-linked": "{ifname} (No IP) 󰊗",
+        "format-disconnected": "⚠",
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": " {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰅶 {icon} {format_source}",
+        "format-muted": "󰅶 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "on-click": "pavucontrol"
+    },
+    "custom/spotify": {
+	    "exec": "~/.local/bin/spotify.sh",
+	    "interval": 5,
+	    "on-click": "playerctl -p spotify play-pause",
+	    "on-scroll-up": "playerctl -p spotify next",
+	    "on-scroll-down": "playerctl -p spotify previous"
+	},
+}

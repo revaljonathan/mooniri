@@ -1,0 +1,190 @@
+/* ── Waybar base ───────────────────────────────────────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 15px;
+    border: none;
+    border-radius: 7;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #1e2030;
+    color: #fca7ea;
+}
+
+/* ── Tooltip ───────────────────────────────────────────────── */
+tooltip {
+    background-color: #1a2a2c;
+    border: 1px solid #3a5456;
+    color: #fca7ea;
+}
+
+tooltip label {
+    color: #fca7ea;
+}
+
+/* ── Generic module wrapper ────────────────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 4px;
+}
+
+/* ── Separator ─────────────────────────────────────────────── */
+#custom-separator {
+    color: #4a6668;
+    padding: 0 2px;
+}
+
+/* ── Workspaces ────────────────────────────────────────────── */
+#workspaces {
+    background: transparent;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #7a9a9c;          /* inactive: muted teal-grey */
+    padding: 0 6px;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    box-shadow: none;
+    min-width: 0;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #fca7ea;
+    box-shadow: none;
+}
+
+#workspaces button.active {
+    color: #fca7ea;
+    border-bottom: 2px solid #fca7ea;
+}
+
+#workspaces button.urgent {
+    color: #ff966c;
+    border-bottom: 2px solid #ff966c;
+}
+
+/* hide the default focus box-shadow Waybar adds */
+#workspaces button:focus {
+    box-shadow: none;
+    background: transparent;
+}
+
+/* ── Window title ──────────────────────────────────────────── */
+#window {
+    color: #fca7ea;
+    padding: 0 6px;
+}
+
+/* ── Clock ─────────────────────────────────────────────────── */
+#clock {
+    color: #fca7ea;
+    padding: 0 8px;
+}
+
+/* ── CPU ────────────────────────────────────────────────────── */
+#cpu {
+    color: #fca7ea;
+    padding: 0 6px;
+}
+
+/* nerdfont icon inherits color — override to orange */
+#cpu label:first-child {
+    color: #ff966c;
+}
+
+/* ── Memory ─────────────────────────────────────────────────── */
+#memory {
+    color: #fca7ea;
+    padding: 3 3px;
+}
+
+/* ── Temperature ────────────────────────────────────────────── */
+#temperature {
+    color: #fca7ea;
+    padding: 3 3px;
+}
+
+#temperature.critical {
+    color: #ff6b6b;
+}
+
+/* ── Backlight ──────────────────────────────────────────────── */
+#backlight {
+    color: #fca7ea;
+    padding: 3 3px;
+}
+
+/* ── Battery ────────────────────────────────────────────────── */
+#battery {
+    color: #fca7ea;
+    padding: 3 3px;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #a8e6a8;           /* soft green when charging */
+}
+
+#battery.warning:not(.charging) {
+    color: #ffcc66;
+}
+
+#battery.critical:not(.charging) {
+    color: #ff6b6b;
+    animation: blink 0.5s step-end infinite alternate;
+}
+
+@keyframes blink {
+    to { color: transparent; }
+}
+
+/* ── Network ────────────────────────────────────────────────── */
+#network {
+    color: #fca7ea;
+    padding: 0 6px;
+}
+
+#network.disconnected {
+    color: #ff6b6b;
+}
+
+/* ── Pulseaudio ─────────────────────────────────────────────── */
+#pulseaudio {
+    color: #fca7ea;
+    padding: 0 6px;
+}
+
+#pulseaudio.muted {
+    color: #4a6668;
+}
+
+/* ── Spotify ────────────────────────────────────────────────── */
+#custom-spotify {
+    color: #fca7ea;
+    padding: 0 6px;
+}
+
+/* ── Icon color override ─────────────────────────────────────
+   Waybar renders nerd font icons as text inside the label.
+   We target the Pango markup span or use a CSS trick to
+   recolor just the icon glyph by wrapping it with the
+   niri/window label selector. Since icons are inline text,
+   the cleanest approach is to set the module color to the
+   icon color and override text with a span in the format
+   string — OR just set both to a blend and rely on the
+   format strings to use <span> markup.
+
+   If you want to split icon vs text color, update each
+   module's "format" in config.jsonc to use Pango markup:
+     "format": "<span color='#ff966c'></span> {usage}%"
+   Then the CSS below keeps text at pink and icons at orange. */
+
+/* ── Scrollbar (if any) ─────────────────────────────────────── */
+scrollbar {
+    background: transparent;
+}

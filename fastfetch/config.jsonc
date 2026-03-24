@@ -1,0 +1,63 @@
+{
+    "$schema":"https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.jso",
+    "logo": {
+    "type": "auto",
+        "source": "/home/revalbtw/.config/fastfetch/last.png",
+        "position": "left",
+           "width": 15,
+    "height": 4,
+    "padding": {
+        "top": 1,
+        "left": 1,
+        "right": 1,
+        "bottom": 0
+        }
+},
+    "display": {
+    	"stat": false,
+        "size": {
+        "binaryPrefix": "jedec"
+    },
+        "separator": " "
+    },
+    
+"modules": [
+
+  
+      {
+    "key": "{#38;5;153} {#38;5;1}{icon} ",
+    "type": "kernel"
+    },
+
+    {
+    "key": "{#38;5;153} {#38;5;2} {#keys}{#38;5;153}",
+    "type": "shell"
+    },
+        {
+    "key": "{#38;5;153} {#38;5;3}󰉉 {#keys}{#38;5;153}",
+    "type": "disk",
+    "format": "{1} | {2}"
+    },
+
+    {
+    "key": "{#38;5;4} 󰏖 {#keys}{#38;5;11537}",
+    "type": "packages"
+    },
+    {
+    "key": "{#38;5;153} {#38;5;5}{icon} {#keys}{#38;5;153}",
+    "type": "uptime"
+    },
+    {
+    "key": "{#38;5;153} {#38;5;6} {#keys}{#38;5;153}",
+    "type": "command",
+        "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"
+
+    },
+   // {
+     //   "type": "custom",
+       // "key": "{#38;5;153}├────────────┤"
+   // },
+
+]
+    
+}

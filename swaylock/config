@@ -1,0 +1,11 @@
+image=~/pics/walls/11.png
+show-failed-attempts
+indicator-radius=100
+indicator-thickness=7
+ring-color=fca7ea
+key-hl-color=ff966c
+font=Roboto
+clock
+timestr=%H:%M:%S
+datestr=%a, %e of %B
+
