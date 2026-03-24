@@ -43,7 +43,7 @@ tooltip label {
 
 #workspaces button {
     background: transparent;
-    color: #7a9a9c;          /* inactive: muted teal-grey */
+    color: #6b7a8a;          /* inactive: muted teal-grey */
     padding: 0 6px;
     border-bottom: 2px solid transparent;
     border-radius: 0;

@@ -73,6 +73,12 @@ gestures {
     hot-corners { off; }
 }
 
+workspace "1" { }
+workspace "2" { }
+workspace "3" { }
+workspace "4" { }
+
+
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
@@ -163,7 +169,7 @@ layout {
         off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 0.1
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -177,7 +183,7 @@ layout {
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#223436"
+        //  inactive-color "#223436"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -201,7 +207,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         on
 
-        width 3
+        width 2
         active-color "#fca7ea"
         inactive-color "#223436"
 
@@ -219,7 +225,7 @@ layout {
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        // on
+        off
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
@@ -250,7 +256,7 @@ layout {
         offset x=0 y=5
 
         // You can also change the shadow color and opacity.
-        color "#0007"
+        // color "#0007"
     }
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
@@ -259,8 +265,8 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        left -6
-        right -6
+        //left 
+        // right -6
         // top 64
         // bottom 64
     }
@@ -284,7 +290,7 @@ spawn-at-startup "swaync"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -358,7 +364,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 10
     clip-to-geometry true
 }
 

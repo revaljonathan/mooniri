@@ -100,15 +100,15 @@
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰅶 {icon} {format_source}",
         "format-muted": "󰅶 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-source": "{volume}%",
+        "format-source-muted": " ",
         "on-click": "pavucontrol"
     },
     "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",
 	    "interval": 5,
 	    "on-click": "playerctl -p spotify play-pause",
-	    "on-scroll-up": "playerctl -p spotify next",
-	    "on-scroll-down": "playerctl -p spotify previous"
+	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
+"on-scroll-down": "playerctl -p spotify volume 0.05-"
 	},
 }

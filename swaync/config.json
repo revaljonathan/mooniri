@@ -56,6 +56,8 @@
     "inhibitors",
     "mpris",
     "title",
+    "volume",
+    "backlight",
     "dnd",
     "notifications"
   ],
@@ -86,7 +88,16 @@
       "show-album-art": "always",
       "loop-carousel": false
     },
-    "buttons-grid": {
+    "volume": {
+      "label": "󰕾 "
+    },
+    "backlight": {
+      "label": "󰃞 ",
+      "device": "intel_backlight"
+    },
+  
+  
+        "buttons-grid": {
       "buttons-per-row": 7,
       "actions": [
         {
