@@ -1,7 +1,7 @@
 /* ── Waybar base ───────────────────────────────────────────── */
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15px;
+    font-size: 15.5px;
     border: none;
     border-radius: 7;
     min-height: 0;
@@ -43,7 +43,7 @@ tooltip label {
 
 #workspaces button {
     background: transparent;
-    color: #6b7a8a;          /* inactive: muted teal-grey */
+    color: #6b7a8a;          
     padding: 0 6px;
     border-bottom: 2px solid transparent;
     border-radius: 0;
@@ -77,19 +77,19 @@ tooltip label {
 /* ── Window title ──────────────────────────────────────────── */
 #window {
     color: #fca7ea;
-    padding: 0 6px;
+    padding: 3 3px;
 }
 
 /* ── Clock ─────────────────────────────────────────────────── */
 #clock {
-    color: #fca7ea;
-    padding: 0 8px;
+    color: #ff966c;
+    padding: 3 3px;
 }
 
 /* ── CPU ────────────────────────────────────────────────────── */
 #cpu {
     color: #fca7ea;
-    padding: 0 6px;
+    padding: 3 3px;
 }
 
 /* nerdfont icon inherits color — override to orange */
@@ -110,7 +110,7 @@ tooltip label {
 }
 
 #temperature.critical {
-    color: #ff6b6b;
+    color: #ff757f;
 }
 
 /* ── Backlight ──────────────────────────────────────────────── */
@@ -127,7 +127,7 @@ tooltip label {
 
 #battery.charging,
 #battery.plugged {
-    color: #a8e6a8;           /* soft green when charging */
+    color: #c3e88d;           /* soft green when charging */
 }
 
 #battery.warning:not(.charging) {
@@ -135,7 +135,7 @@ tooltip label {
 }
 
 #battery.critical:not(.charging) {
-    color: #ff6b6b;
+    color: #ff757f;
     animation: blink 0.5s step-end infinite alternate;
 }
 
@@ -145,28 +145,28 @@ tooltip label {
 
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #fca7ea;
-    padding: 0 6px;
+    color: #82aaff;
+    padding: 3 3px;
 }
 
 #network.disconnected {
-    color: #ff6b6b;
+    color: #ffc777;
 }
 
 /* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
-    color: #fca7ea;
-    padding: 0 6px;
+    color: #82aaff;
+    padding: 3 3px;
 }
 
 #pulseaudio.muted {
-    color: #4a6668;
+    color: #c53b53;
 }
 
 /* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {
-    color: #fca7ea;
-    padding: 0 6px;
+    color: #4fd6be;
+    padding: 3 3px;
 }
 
 /* ── Icon color override ─────────────────────────────────────
