@@ -11,27 +11,13 @@
         "niri/window"
     ],
     "modules-center": [
+        "clock"
     ],
     "modules-right": [
-    	"clock",
-    	"custom/separator",
-    	"battery",
-    	"custom/separator",
-        "pulseaudio",
-        // "custom/separator",
-        "network",
-        "custom/separator",
-        "cpu",
-        //"custom/separator",
-        "memory",
-        //"custom/separator",
-        "temperature",
-        // "backlight",
-        // "custom/separator",
-        "custom/separator",
-        "custom/spotify"
-    ],
-
+      "battery",
+    	"pulseaudio",
+        "network"
+      ],
     "custom/separator": {
         "format": "|",
         "interval": "once",

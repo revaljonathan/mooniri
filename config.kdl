@@ -118,6 +118,14 @@ output "eDP-1" {
     position x=1280 y=0
 }
 
+
+cursor {
+    // Set the cursor theme name
+    //xcursor-theme "breeze_cursors"
+    // Set the cursor size in pixels
+    xcursor-size 32
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
@@ -281,7 +289,8 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-sh-at-startup "swaybg -m fill -i ~/pics/walls/3.png"
+//spawn-sh-at-startup "swaybg -m fill -i ~/pics/walls/3.png"
+spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 //spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock"
@@ -637,7 +646,10 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-	Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+  	Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+Z hotkey-overlay-title="wallpaper" { spawn "/home/revalbtw/.local/bin/wp.sh"; }
+    Mod+B { spawn "/home/revalbtw/.local/bin/bar.sh"; }
+
 	
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
