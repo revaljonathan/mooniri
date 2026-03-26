@@ -33,7 +33,7 @@ tooltip label {
 /* ── Separator ─────────────────────────────────────────────── */
 #custom-separator {
     color: #4a6668;
-    padding: 0 2px;
+    padding: 0 0px;
 }
 
 /* ── Workspaces ────────────────────────────────────────────── */
@@ -77,19 +77,19 @@ tooltip label {
 /* ── Window title ──────────────────────────────────────────── */
 #window {
     color: #fca7ea;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 /* ── Clock ─────────────────────────────────────────────────── */
 #clock {
     color: #ffc777;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 /* ── CPU ────────────────────────────────────────────────────── */
 #cpu {
     color: #fca7ea;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 /* nerdfont icon inherits color — override to orange */
@@ -100,13 +100,13 @@ tooltip label {
 /* ── Memory ─────────────────────────────────────────────────── */
 #memory {
     color: #fca7ea;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 /* ── Temperature ────────────────────────────────────────────── */
 #temperature {
     color: #fca7ea;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 #temperature.critical {
@@ -116,13 +116,13 @@ tooltip label {
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
     color: #fca7ea;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 /* ── Battery ────────────────────────────────────────────────── */
 #battery {
     color: #fca7ea;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 #battery.charging,
@@ -146,7 +146,7 @@ tooltip label {
 /* ── Network ────────────────────────────────────────────────── */
 #network {
     color: #4fd6be;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 #network.disconnected {
@@ -156,7 +156,7 @@ tooltip label {
 /* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
     color: #82aaff;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 #pulseaudio.muted {
@@ -166,7 +166,7 @@ tooltip label {
 /* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {
     color: #4fd6be;
-    padding: 3 3px;
+    padding: 4 4px;
 }
 
 /* ── Icon color override ─────────────────────────────────────

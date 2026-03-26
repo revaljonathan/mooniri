@@ -8,13 +8,16 @@
     
     "modules-left": [
         "niri/workspaces",
-        "niri/window"
+        "niri/window",
+        "custom/separator"
     ],
     "modules-center": [
     ],
     "modules-right": [
     	"clock",
-    	"custom/separator",
+      "custom/separator",
+      "custom/weather",
+      "custom/separator",
     	"battery",
     	"custom/separator",
         "pulseaudio",
@@ -48,7 +51,8 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%A, %d %B %H:%M}"
+        "format": "{:%A, %d %B %H:%M}",
+        "on-click": "kitty -e calcurse"
     },
     "cpu": {
         "format": " {usage}%",
@@ -82,7 +86,8 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "kitty -e btop"
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -105,7 +110,16 @@
         //"format-source-muted": " ",
         "on-click": "pavucontrol"
     },
-    "custom/spotify": {
+
+    "custom/weather": {
+    "format": "{}°C",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph",
+    "return-type": "json"
+},
+
+       "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",
 	    "interval": 5,
 	    "on-click": "playerctl -p spotify play-pause",

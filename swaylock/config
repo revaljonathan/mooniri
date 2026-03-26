@@ -1,11 +1,40 @@
-image=~/pics/walls/11.png
 show-failed-attempts
 indicator-radius=100
 indicator-thickness=7
-ring-color=fca7ea
-key-hl-color=ff966c
-font=Roboto
+
+font=JetBrains Mono Nerd Font
+
 clock
 timestr=%H:%M:%S
 datestr=%a, %e of %B
 
+color=222436
+image=~/pics/walls/16.png
+bs-hl-color=fca7ea
+caps-lock-bs-hl-color=fca7ea
+caps-lock-key-hl-color=c3e88d
+inside-color=222436
+inside-clear-color=222436
+inside-caps-lock-color=222436
+inside-ver-color=222436
+inside-wrong-color=222436
+key-hl-color=c3e88d
+layout-bg-color=00000000
+layout-border-color=00000000
+layout-text-color=c8d3f5
+line-color=00000000
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+ring-color=2f334d
+ring-clear-color=fca7ea
+ring-caps-lock-color=ff966c
+ring-ver-color=82aaf
+ring-wrong-color=ff757f
+separator-color=00000000
+text-color=c8d3f5
+text-clear-color=fca7ea
+text-caps-lock-color=ff966c
+text-ver-color=82aaff
+text-wrong-color=ff757f

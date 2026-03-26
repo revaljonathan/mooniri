@@ -18,10 +18,16 @@ export LS_COLORS=""
 export BAT_THEME="tokyonight_moon"
 export "MICRO_TRUECOLOR=1"
 export EZA_CONFIG_DIR="$HOME/.config/eza/"
-export EDITOR=micro
-export VISUAL=micro
+export EDITOR=nvim
+export VISUAL=nvim
 export TERMINAL=kitty
 export COLORTERM=truecolor
+
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export GOPATH=$HOME/.go
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 bindkey '^[[A' up-line-or-history
 bindkey '^[[B' down-line-or-history

@@ -34,7 +34,8 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%A, %d %B %H:%M}"
+        "format": "{:%A, %d %B %H:%M}",
+        "on-click": "kitty -e calcurse"
     },
     "cpu": {
         "format": " {usage}%",
@@ -68,7 +69,8 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "kitty -e btop"
     },
     "battery#bat2": {
         "bat": "BAT2"
