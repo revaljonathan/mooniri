@@ -20,6 +20,7 @@
       "custom/separator",
     	"battery",
     	"custom/separator",
+       "pulseaudio#microphone",
         "pulseaudio",
         // "custom/separator",
         "network",
@@ -83,7 +84,7 @@
         "format-full": "{capacity}% {icon}",
         "format-charging":" {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
+        "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
@@ -97,19 +98,30 @@
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
-        "format-disconnected": "⚠",
+        "format-disconnected": "󱛅 ",
         "on-click": "nmgui"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": " {volume}%",
         //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
-        "format-bluetooth-muted": "󰅶 {icon} {format_source}",
+        //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
         "format-muted": "󰅶 " , //{format_source}",
-        //"format-source": "{volume}%",
+        //"format-source": " {volume}%",
         //"format-source-muted": " ",
         "on-click": "pavucontrol"
     },
+
+    "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "tooltip-format": "{source_desc} | {source_volume}%"
+},
 
     "custom/weather": {
     "format": "{}°C",
@@ -121,7 +133,7 @@
 
        "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",
-	    "interval": 5,
+	    "interval": 8,
 	    "on-click": "playerctl -p spotify play-pause",
 	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
 "on-scroll-down": "playerctl -p spotify volume 0.05-"

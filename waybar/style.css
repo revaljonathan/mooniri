@@ -1,7 +1,7 @@
 /* ── Waybar base ───────────────────────────────────────────── */
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15.5px;
+    font-size: 15px;
     border: none;
     border-radius: 7;
     min-height: 0;
@@ -121,7 +121,7 @@ tooltip label {
 
 /* ── Battery ────────────────────────────────────────────────── */
 #battery {
-    color: #fca7ea;
+    color: #ff966c;
     padding: 1.5 1.5px;
 }
 
@@ -160,8 +160,20 @@ tooltip label {
 }
 
 #pulseaudio.muted {
-    color: #c53b53;
+  padding: 1.5 1.5px;
+  color: #82aaff;
 }
+
+#pulseaudio.microphone {
+  padding: 1.5 1.5px;
+  color: #82aaff;
+}
+
+#pulseaudio.microphone#muted {
+  padding: 1.5 1.5px;
+  color: #ff757f
+}
+
 
 /* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {

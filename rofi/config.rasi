@@ -1,15 +1,17 @@
 configuration {
-    modes:              "run,emoji:/usr/bin/rofimoji,ssh,drun";
+  modes: "window,emoji:/usr/bin/rofimoji,ssh,drun";
+    modes:              "drun";
     sorting-method:     "normal";
     show-icons:         true;
     terminal:           "kitty";
     editor:             "micro";
     matching:           "regex";
     drun-match-fields:  "name";
-    display-run:        " Menu:";
+    /*display-run:        "Window:";
     display-ssh:        " SSH:";
     display-drun:       "󰀻 Apps:";
         display-emoji:		"󱃞 Emoji";
+        */
      kb-move-char-forward: "Right";
     kb-move-char-back: "Left";
     kb-mode-next: "Alt+Right";
@@ -21,27 +23,26 @@ configuration {
 
 /* ── Palette ──────────────────────────────────────────────────────────── */
 * {
-    bg0:     #1a1b26;
-    bg1:     #1f2335;
-    bg2:     #24283b;
-    bg3:     #414868;
-    fg0:     #c0caf5;
-    fg1:     #a9b1d6;
-    fg2:     #737aa2;
-    red:     #f7768e;
-    green:   #9ece6a;
-    yellow:  #e0af68;
-    blue:    #7aa2f7;
-    magenta: #9a7ecc;
-    cyan:    #4abaaf;
+    bg0:     #1e2030;   /* bg_dark */
+    bg1:     #222436;   /* bg */
+    bg2:     #2f334d;   /* bg_highlight */
+    bg3:     #545c7e;   /* dark3 */
+    fg0:     #c8d3f5;   /* fg */
+    fg1:     #828bb8;   /* fg_dark */
+    fg2:     #737aa2;   /* dark5 */
+    red:     #ff757f;
+    green:   #c3e88d;
+    yellow:  #ffc777;
+    blue:    #82aaff;
+    magenta: #c099ff;
+    cyan:    #86e1fc;
     purple:  #fca7ea;
 
-    accent:  @purple;
+    accent:  @blue;
     urgent:  @yellow;
 
-    /* Semantic aliases */
-    background-color:   transparent;
-    text-color:         @fg0;
+    background-color: transparent;
+    text-color:       @fg0;
 }
 
 /* ── Window ───────────────────────────────────────────────────────────── */
@@ -57,7 +58,7 @@ window {
 /* ── Main box ─────────────────────────────────────────────────────────── */
 mainbox {
     background-color: transparent;
-    children:         [ inputbar, message, mode-switcher, listview ];
+    children:         [ inputbar, message, listview ];
     spacing:          0;
     padding:          12px;
 }

@@ -177,7 +177,13 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    
     Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
+    Mod+A { spawn "rofi" "-show" "window"; }
+    Mod+S { spawn "rofi" "-show" "ssh"; }
+    Mod+E { spawn "rofimoji"; }
+    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+
     Mod+Shift+S { spawn "sh" "-c" "swaylock -f && systemctl suspend"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
@@ -366,8 +372,7 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-  	Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
-    Mod+Z hotkey-overlay-title="wallpaper" { spawn "/home/revalbtw/.local/bin/wp.sh"; }
+      Mod+Z hotkey-overlay-title="wallpaper" { spawn "/home/revalbtw/.local/bin/wp.sh"; }
     Mod+B { spawn "/home/revalbtw/.local/bin/bar.sh"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
