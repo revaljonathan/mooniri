@@ -7,8 +7,8 @@
     "spacing": 6, // Gaps between modules (4px)
     
     "modules-left": [
-        "niri/workspaces",
-        "niri/window"
+        "niri/workspaces"
+        //"niri/window"
     ],
     "modules-center": [
         "clock"

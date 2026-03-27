@@ -44,7 +44,7 @@ tooltip label {
 #workspaces button {
     background: transparent;
     color: #6b7a8a;          
-    padding: 0 5px;
+    padding: 5 6px;
     border-bottom: 2px solid transparent;
     border-radius: 0;
     transition: color 0.15s ease, border-color 0.15s ease;
@@ -112,6 +112,12 @@ tooltip label {
 #temperature.critical {
     color: #ff757f;
 }
+
+#disk {
+    color: #fca7ea;
+    padding: 1.5 1.5px;
+}
+
 
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {

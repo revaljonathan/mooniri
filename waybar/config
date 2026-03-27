@@ -8,12 +8,15 @@
     
     "modules-left": [
         "niri/workspaces",
-        "niri/window",
-        "custom/separator"
+        "custom/separator",
+        "niri/window"
+        //"custom/separator"
     ],
+
     "modules-center": [
     ],
     "modules-right": [
+      "custom/separator",
     	"clock",
       "custom/separator",
       "custom/weather",
@@ -25,6 +28,7 @@
         // "custom/separator",
         "network",
         "custom/separator",
+        "disk",
         "cpu",
         //"custom/separator",
         "memory",
@@ -129,6 +133,13 @@
     "interval": 3600,
     "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph",
     "return-type": "json"
+},
+
+"disk": {
+    "interval": 300,
+    "format": "/ {percentage_used}%",
+    "path": "/",
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
 
        "custom/spotify": {

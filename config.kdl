@@ -177,12 +177,13 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    
+
     Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
     Mod+A { spawn "rofi" "-show" "window"; }
     Mod+S { spawn "rofi" "-show" "ssh"; }
     Mod+E { spawn "rofimoji"; }
     Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+P { spawn "~/.local/bin/power.sh"; }
 
     Mod+Shift+S { spawn "sh" "-c" "swaylock -f && systemctl suspend"; }
 
