@@ -1,7 +1,7 @@
 /* ── Waybar base ───────────────────────────────────────────── */
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15.5px;
+    font-size: 15px;
     border: none;
     border-radius: 7;
     min-height: 0;
@@ -14,26 +14,26 @@ window#waybar {
 
 /* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
-    background-color: #1a2a2c;
+    background-color: #222436;
     border: 1px solid #3a5456;
-    color: #fca7ea;
+    color: #c8d3f5;
 }
 
 tooltip label {
-    color: #fca7ea;
+    color: #c8d3f5;
 }
 
 /* ── Generic module wrapper ────────────────────────────────── */
 .modules-left,
 .modules-center,
 .modules-right {
-    padding: 0 4px;
+    padding: 0 2px;
 }
 
 /* ── Separator ─────────────────────────────────────────────── */
 #custom-separator {
     color: #4a6668;
-    padding: 0 0px;
+    padding: 0.5 0.5px;
 }
 
 /* ── Workspaces ────────────────────────────────────────────── */
@@ -43,10 +43,10 @@ tooltip label {
 
 #workspaces button {
     background: transparent;
-    color: #6b7a8a;          
-    padding: 0 6px;
-    border-bottom: 2px solid transparent;
-    border-radius: 0;
+    color: #c099ff;      
+    opacity: 0.5;
+    padding: 5 6px;
+        border-radius: 0;
     transition: color 0.15s ease, border-color 0.15s ease;
     box-shadow: none;
     min-width: 0;
@@ -55,18 +55,18 @@ tooltip label {
 #workspaces button:hover {
     background: transparent;
     color: #fca7ea;
+    opacity: 1;
     box-shadow: none;
 }
 
 #workspaces button.active {
-    color: #fca7ea;
-    border-bottom: 2px solid #fca7ea;
-}
+    color: #ffc777;
+    opacity: 1;
+   }
 
 #workspaces button.urgent {
     color: #ff966c;
-    border-bottom: 2px solid #ff966c;
-}
+  }
 
 /* hide the default focus box-shadow Waybar adds */
 #workspaces button:focus {
@@ -77,19 +77,19 @@ tooltip label {
 /* ── Window title ──────────────────────────────────────────── */
 #window {
     color: #fca7ea;
-    padding: 1 5.5px;
+    padding: 1 2.5px;
 }
 
 /* ── Clock ─────────────────────────────────────────────────── */
 #clock {
     color: #ffc777;
-    padding: 1 5.5px;
+    padding: 1 2.5px;
 }
 
 /* ── CPU ────────────────────────────────────────────────────── */
 #cpu {
     color: #fca7ea;
-    padding: 1 5.5px;
+    padding: 1 2.5px;
 }
 
 /* nerdfont icon inherits color — override to orange */
@@ -100,29 +100,35 @@ tooltip label {
 /* ── Memory ─────────────────────────────────────────────────── */
 #memory {
     color: #fca7ea;
-    padding: 1 5.5px;
+    padding: 1 2.5px;
 }
 
 /* ── Temperature ────────────────────────────────────────────── */
 #temperature {
     color: #fca7ea;
-    padding: 1 5.5px;
+    padding: 1 2.5px;
 }
 
 #temperature.critical {
     color: #ff757f;
 }
 
+#disk {
+    color: #fca7ea;
+    padding: 1 2.5px;
+}
+
+
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
-    color: #ffc666;
-    padding: 1 5.5px;
+    color: #ff966c;
+    padding: 1 2.5px;
 }
 
 /* ── Battery ────────────────────────────────────────────────── */
 #battery {
-    color: #ff96cc;
-    padding: 1 5.5px;
+    color: #ff966c;
+    padding: 1 2.5px;
 }
 
 #battery.charging,
@@ -135,7 +141,7 @@ tooltip label {
 }
 
 #battery.critical:not(.charging) {
-    color: #ff757f;
+    color: #ff966c;
     animation: blink 0.5s step-end infinite alternate;
 }
 
@@ -145,8 +151,8 @@ tooltip label {
 
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #4fd6be;
-    padding: 1 5.5px;
+    color: #ff966c;
+    padding: 1 2.5px;
 }
 
 #network.disconnected {
@@ -156,19 +162,36 @@ tooltip label {
 /* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
     color: #82aaff;
-    padding: 1 5.5px;
+    padding: 1 2.5px;
 }
 
 #pulseaudio.muted {
-    color: #ff757f;
-    padding: 1 5.5px;
+  padding: 1 2.5px;
+  color: #82aaff;
 }
+
+#pulseaudio.microphone {
+  padding: 1 2.5px;
+  color: #82aaff;
+}
+
+#pulseaudio.microphone#muted {
+  padding: 1 2.5px;
+  color: #ff757f
+}
+
 
 /* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {
     color: #4fd6be;
-    padding: 1 5.5px;
+    padding: 1 2.5px;
 }
+
+#custom-weather {
+    color: #c099ff;
+    padding: 1 2.5px;
+   }
+
 
 /* ── Icon color override ─────────────────────────────────────
    Waybar renders nerd font icons as text inside the label.

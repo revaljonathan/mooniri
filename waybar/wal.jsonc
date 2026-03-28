@@ -4,41 +4,24 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1900, // Waybar width
-    "spacing": 6, // Gaps between modules (4px)
+    "spacing": 15, // Gaps between modules (4px)
     
     "modules-left": [
+    "custom/arch",
         "niri/workspaces",
-        "custom/separator",
         "niri/window"
-        //"custom/separator"
     ],
 
     "modules-center": [
     ],
     "modules-right": [
-      "custom/separator",
-    	"clock",
-      "custom/separator",
-      "custom/weather",
-      "custom/separator",
-    	"battery",
-    	"custom/separator",
-       "pulseaudio#microphone",
-        "pulseaudio",
-        "custom/separator",
-        "network",
-        "backlight",
-        "custom/separator",
-        //"disk",
-        "cpu",
-        //"custom/separator",
-        "memory",
-        //"custom/separator",
-        "temperature",
-        // "backlight",
-        // "custom/separator",
-        "custom/separator",
-        "custom/spotify"
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "backlight",
+    "battery",
+    "network",
+    "clock"
+        //"custom/spotify"
     ],
 
     "custom/separator": {
@@ -52,6 +35,12 @@
     "max-length": 30,
     "tooltip": true
 },
+
+  "custom/arch": {
+    "tooltip": false,
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+  },
 
     
     "clock": {
@@ -104,7 +93,7 @@
         "bat": "BAT2"
     },
     "network": {
-        "format-wifi": " {signalStrength}%",
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
@@ -133,26 +122,7 @@
     "tooltip-format": "{source_desc} | {source_volume}%"
 },
 
-    "custom/weather": {
-    "format": "{}°C",
-    "tooltip": true,
-    "interval": 3600,
-    "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph",
-    "return-type": "json"
-},
-
-"disk": {
-    "interval": 300,
-    "format": "/ {percentage_used}%",
-    "path": "/",
-    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
-},
-
-
-
-
-
-
+   
 
        "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",

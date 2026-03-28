@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
+    // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1900, // Waybar width
@@ -9,7 +9,7 @@
     "modules-left": [
         "niri/workspaces",
         "custom/separator",
-        "niri/window"
+        "custom/spotify"
         //"custom/separator"
     ],
 
@@ -19,26 +19,17 @@
       "custom/separator",
     	"clock",
       "custom/separator",
-      "custom/weather",
-      "custom/separator",
     	"battery",
     	"custom/separator",
        "pulseaudio#microphone",
         "pulseaudio",
         "custom/separator",
-        "network",
         "backlight",
+        "network",
         "custom/separator",
-        //"disk",
         "cpu",
-        //"custom/separator",
         "memory",
-        //"custom/separator",
         "temperature",
-        // "backlight",
-        // "custom/separator",
-        "custom/separator",
-        "custom/spotify"
     ],
 
     "custom/separator": {
@@ -76,25 +67,20 @@
         "format-icons": ["󰉬", "", "󰉪"]
     },
     "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["", "", ""],
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-",
-    "tooltip": false
-},
-
+        // "device": "acpi_video1",
+        "format": "󰃞 {percent}%",
+    },
     "battery": {
         "states": {
             // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}% - {time}",
+        "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging":" {capacity}%",
-        "format-plugged": " {capacity}%",
-        //"format-alt": "{icon} {time}",
+        "format-charging":" {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
@@ -147,12 +133,6 @@
     "path": "/",
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
-
-
-
-
-
-
 
        "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",

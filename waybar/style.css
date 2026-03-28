@@ -77,19 +77,19 @@ tooltip label {
 /* ── Window title ──────────────────────────────────────────── */
 #window {
     color: #fca7ea;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 /* ── Clock ─────────────────────────────────────────────────── */
 #clock {
     color: #ffc777;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 /* ── CPU ────────────────────────────────────────────────────── */
 #cpu {
     color: #fca7ea;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 /* nerdfont icon inherits color — override to orange */
@@ -100,13 +100,13 @@ tooltip label {
 /* ── Memory ─────────────────────────────────────────────────── */
 #memory {
     color: #fca7ea;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 /* ── Temperature ────────────────────────────────────────────── */
 #temperature {
     color: #fca7ea;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 #temperature.critical {
@@ -115,20 +115,20 @@ tooltip label {
 
 #disk {
     color: #fca7ea;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
-    color: #fca7ea;
-    padding: 1.5 1.5px;
+    color: #ff966c;
+    padding: 1 2.5px;
 }
 
 /* ── Battery ────────────────────────────────────────────────── */
 #battery {
     color: #ff966c;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 #battery.charging,
@@ -151,8 +151,8 @@ tooltip label {
 
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #82aaff;
-    padding: 1.5 1.5px;
+    color: #ff966c;
+    padding: 1 2.5px;
 }
 
 #network.disconnected {
@@ -162,21 +162,21 @@ tooltip label {
 /* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
     color: #82aaff;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 #pulseaudio.muted {
-  padding: 1.5 1.5px;
+  padding: 1 2.5px;
   color: #82aaff;
 }
 
 #pulseaudio.microphone {
-  padding: 1.5 1.5px;
+  padding: 1 2.5px;
   color: #82aaff;
 }
 
 #pulseaudio.microphone#muted {
-  padding: 1.5 1.5px;
+  padding: 1 2.5px;
   color: #ff757f
 }
 
@@ -184,12 +184,12 @@ tooltip label {
 /* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {
     color: #4fd6be;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
 }
 
 #custom-weather {
     color: #c099ff;
-    padding: 1.5 1.5px;
+    padding: 1 2.5px;
    }
 
 

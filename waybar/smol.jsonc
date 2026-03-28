@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
+    "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1900, // Waybar width
@@ -15,6 +15,8 @@
     ],
     "modules-right": [
       "battery",
+    "custom/separator",
+    "backlight",
     	"pulseaudio",
         "network"
       ],
@@ -41,6 +43,12 @@
         "format": " {usage}%",
         "tooltip": false
     },
+
+      "custom/separator": {
+        "format": "-",
+        "interval": "once",
+        "tooltip": false
+    },
     "memory": {
         "format": " {}%"
     },
@@ -52,10 +60,14 @@
         "format": " {temperatureC}°C",
         "format-icons": ["󰉬", "", "󰉪"]
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "󰃞 {percent}%",
-    },
+   "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", ""],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip": false
+},
     "battery": {
         "states": {
             // "good": 95,

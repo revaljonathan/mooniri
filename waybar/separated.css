@@ -1,52 +1,54 @@
 /* ── Waybar base ───────────────────────────────────────────── */
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
-    font-size: 15.5px;
+    font-size: 15px;
     border: none;
     border-radius: 7;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: #1e2030;
+    background-color: transparent; 
     color: #fca7ea;
 }
 
 /* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
-    background-color: #1a2a2c;
-    border: 1px solid #3a5456;
-    color: #fca7ea;
+       border: 1px solid #3a5456;
+    color: #c8d3f5;
 }
 
 tooltip label {
-    color: #fca7ea;
+   background-color: #1e2030;
+    color: #c8d3f5;
 }
 
 /* ── Generic module wrapper ────────────────────────────────── */
 .modules-left,
 .modules-center,
 .modules-right {
-    padding: 0 4px;
+       padding: 0 2px;
 }
 
 /* ── Separator ─────────────────────────────────────────────── */
 #custom-separator {
     color: #4a6668;
-    padding: 0 0px;
+    padding: 0.5 0.5px;
 }
 
 /* ── Workspaces ────────────────────────────────────────────── */
 #workspaces {
-    background: transparent;
+  border-radius: 20px;
+    
+    background: #1e2030;
 }
 
 #workspaces button {
     background: transparent;
-    color: #6b7a8a;          
+    color: #c099ff;      
+    opacity: 0.5;
     padding: 0 6px;
-    border-bottom: 2px solid transparent;
-    border-radius: 0;
+        border-radius: 0;
     transition: color 0.15s ease, border-color 0.15s ease;
     box-shadow: none;
     min-width: 0;
@@ -55,41 +57,43 @@ tooltip label {
 #workspaces button:hover {
     background: transparent;
     color: #fca7ea;
+    opacity: 1;
     box-shadow: none;
 }
 
 #workspaces button.active {
-    color: #fca7ea;
-    border-bottom: 2px solid #fca7ea;
-}
+    color: #ffc777;
+    opacity: 1;
+   }
 
 #workspaces button.urgent {
     color: #ff966c;
-    border-bottom: 2px solid #ff966c;
-}
+  }
 
 /* hide the default focus box-shadow Waybar adds */
 #workspaces button:focus {
     box-shadow: none;
     background: transparent;
 }
-
 /* ── Window title ──────────────────────────────────────────── */
 #window {
     color: #fca7ea;
-    padding: 1 5.5px;
+     background-color: #1e2030;
+    padding: 0 10px;
 }
 
 /* ── Clock ─────────────────────────────────────────────────── */
 #clock {
-    color: #ffc777;
-    padding: 1 5.5px;
+    color: #82aaff;
+     border-radius: 20px;
+     background-color: #1e2030;
+    padding: 0 10px;
 }
 
 /* ── CPU ────────────────────────────────────────────────────── */
 #cpu {
     color: #fca7ea;
-    padding: 1 5.5px;
+    padding: 0 10px;
 }
 
 /* nerdfont icon inherits color — override to orange */
@@ -100,42 +104,56 @@ tooltip label {
 /* ── Memory ─────────────────────────────────────────────────── */
 #memory {
     color: #fca7ea;
-    padding: 1 5.5px;
+    padding: 0 10px;
 }
 
 /* ── Temperature ────────────────────────────────────────────── */
 #temperature {
     color: #fca7ea;
-    padding: 1 5.5px;
+    padding: 0 10px;
 }
 
 #temperature.critical {
     color: #ff757f;
 }
 
+#disk {
+    color: #fca7ea;
+    padding: 0 10px;
+}
+
+
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
-    color: #ffc666;
-    padding: 1 5.5px;
+    color: #fca7ea;
+    padding: 0 10px;
 }
 
 /* ── Battery ────────────────────────────────────────────────── */
 #battery {
-    color: #ff96cc;
-    padding: 1 5.5px;
+    color: #ff966c;
+     border-radius: 20px;
+     background-color: #1e2030;
+    padding: 0 10px;
 }
 
 #battery.charging,
 #battery.plugged {
+   border-radius: 20px;
+   background-color: #1e2030;
     color: #c3e88d;           /* soft green when charging */
 }
 
 #battery.warning:not(.charging) {
+   border-radius: 20px;
+   background-color: #1e2030;
     color: #ffcc66;
 }
 
 #battery.critical:not(.charging) {
-    color: #ff757f;
+   border-radius: 20px;
+   background-color: #1e2030;
+    color: #ff966c;
     animation: blink 0.5s step-end infinite alternate;
 }
 
@@ -145,47 +163,74 @@ tooltip label {
 
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #4fd6be;
-    padding: 1 5.5px;
+   background-color: #1e2030;
+    border-radius: 20px;
+    color: #c099ff;
+    padding: 0 10px;
 }
 
 #network.disconnected {
+   border-radius: 20px;
+   background-color: #1e2030;
     color: #ffc777;
 }
 
 /* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
-    color: #82aaff;
-    padding: 1 5.5px;
+    color: #ff966c;
+     border-radius: 20px;
+     background-color: #1e2030;
+    padding: 0 10px;
 }
 
 #pulseaudio.muted {
-    color: #ff757f;
-    padding: 1 5.5px;
+   border-radius: 20px;
+   background-color: #1e2030;
+  padding: 0 10px;
+  color: #ff757f;
 }
+
+#pulseaudio.microphone {
+   background-color: #1e2030;
+  padding: 0 10px;
+  color: #82aaff;
+}
+
+#pulseaudio.microphone#muted {
+   background-color: #1e2030;
+  padding: 0 10px;
+  color: #ff757f
+}
+
 
 /* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {
+border-radius: 20px;
+   background-color: #222436;
     color: #4fd6be;
-    padding: 1 5.5px;
+    padding: 0 10px;
 }
 
-/* ── Icon color override ─────────────────────────────────────
-   Waybar renders nerd font icons as text inside the label.
-   We target the Pango markup span or use a CSS trick to
-   recolor just the icon glyph by wrapping it with the
-   niri/window label selector. Since icons are inline text,
-   the cleanest approach is to set the module color to the
-   icon color and override text with a span in the format
-   string — OR just set both to a blend and rely on the
-   format strings to use <span> markup.
+#custom-weather {
+    color: #c099ff;
+    padding: 0 10px;
+   }
 
-   If you want to split icon vs text color, update each
-   module's "format" in config.jsonc to use Pango markup:
-     "format": "<span color='#ff966c'></span> {usage}%"
-   Then the CSS below keeps text at pink and icons at orange. */
+  #custom-notification {
+     border-radius: 20px;
+     background-color: #1e2030;
+       color: #65bcff; /* Customize color */
+       padding: 0 10px;
+}
 
-/* ── Scrollbar (if any) ─────────────────────────────────────── */
+#custom-arch {
+  color: #82aaff;
+  background-color: #1e2030;
+  border-radius: 20px;
+  padding: 0 10px;
+}
+
+
 scrollbar {
-    background: transparent;
+   background: transparent;
 }

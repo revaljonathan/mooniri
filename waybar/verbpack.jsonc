@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
+    // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1900, // Waybar width
@@ -25,12 +25,11 @@
     	"custom/separator",
        "pulseaudio#microphone",
         "pulseaudio",
-        "custom/separator",
+         "custom/separator",
         "network",
-        "backlight",
+    "backlight",
         "custom/separator",
-        //"disk",
-        "cpu",
+               "cpu",
         //"custom/separator",
         "memory",
         //"custom/separator",
@@ -75,6 +74,8 @@
         "format": " {temperatureC}°C",
         "format-icons": ["󰉬", "", "󰉪"]
     },
+ 
+    
     "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
@@ -83,18 +84,18 @@
     "on-scroll-down": "brightnessctl set 5%-",
     "tooltip": false
 },
-
+    
     "battery": {
         "states": {
             // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}% - {time}",
+        "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging":" {capacity}%",
-        "format-plugged": " {capacity}%",
-        //"format-alt": "{icon} {time}",
+        "format-charging":" {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
@@ -148,11 +149,17 @@
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
 
-
-
-
-
-
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "active": "󰮯",
+        "occupied": "○",
+        "empty": "󰧞",
+        "default": "󰊠"
+    },
+    "disable-click": false,
+    "all-outputs": true
+},
 
        "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",

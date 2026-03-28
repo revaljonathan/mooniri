@@ -4,42 +4,24 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1900, // Waybar width
-    "spacing": 6, // Gaps between modules (4px)
+    "spacing": 10, //Gaps between modules (4px)
     
     "modules-left": [
-        "niri/workspaces",
-        "custom/separator",
-        "niri/window"
-        //"custom/separator"
-    ],
+        "custom/arch",
+        "custom/spotify",
+      ],
 
     "modules-center": [
+    "custom/notification",
+    "niri/workspaces",
+    "clock",
     ],
     "modules-right": [
-      "custom/separator",
-    	"clock",
-      "custom/separator",
-      "custom/weather",
-      "custom/separator",
-    	"battery",
-    	"custom/separator",
-       "pulseaudio#microphone",
-        "pulseaudio",
-        "custom/separator",
-        "network",
-        "backlight",
-        "custom/separator",
-        //"disk",
-        "cpu",
-        //"custom/separator",
-        "memory",
-        //"custom/separator",
-        "temperature",
-        // "backlight",
+         	"battery",
+                 "pulseaudio",
         // "custom/separator",
-        "custom/separator",
-        "custom/spotify"
-    ],
+        "network",
+           ],
 
     "custom/separator": {
         "format": "|",
@@ -57,7 +39,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%A, %d %B %H:%M}",
+        "format": "{:%b %d, %H:%M}",
         "on-click": "kitty -e calcurse"
     },
     "cpu": {
@@ -76,14 +58,9 @@
         "format-icons": ["󰉬", "", "󰉪"]
     },
     "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["", "", ""],
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-",
-    "tooltip": false
-},
-
+        // "device": "acpi_video1",
+        "format": "󰃞 {percent}%",
+    },
     "battery": {
         "states": {
             // "good": 95,
@@ -104,7 +81,7 @@
         "bat": "BAT2"
     },
     "network": {
-        "format-wifi": " {signalStrength}%",
+        "format-wifi": " {essid} {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
@@ -133,26 +110,41 @@
     "tooltip-format": "{source_desc} | {source_volume}%"
 },
 
-    "custom/weather": {
-    "format": "{}°C",
-    "tooltip": true,
-    "interval": 3600,
-    "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph",
-    "return-type": "json"
-},
-
-"disk": {
-    "interval": 300,
-    "format": "/ {percentage_used}%",
-    "path": "/",
-    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "active": "󰮯",
+        "occupied": "○",
+        "empty": "󰧞",
+        "default": "󰊠"
+    },
+    "disable-click": false,
+    "all-outputs": true
 },
 
 
+"custom/notification": {
+  "tooltip": false,
+  "format": "{icon}",
+  "format-icons": {
+    "notification": "󱅫",
+    "none": "",
+    "dnd-notification": "",
+    "dnd-none": "󰒲"
+  },
+  "return-type": "json",
+  "exec-if": "which swaync-client",
+  "exec": "swaync-client -swb",
+  "on-click": "swaync-client -t -sw",
+  "on-click-right": "swaync-client -d -sw",
+  "escape": true
+},
 
-
-
-
+"custom/arch": {
+    "tooltip": false,
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+  },
 
        "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",
