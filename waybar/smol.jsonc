@@ -88,7 +88,7 @@
         "bat": "BAT2"
     },
     "network": {
-        "format-wifi": " {signalStrength}%",
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
