@@ -74,6 +74,10 @@ cursor {
     xcursor-size 32
 }
 
+overview {
+  backdrop-color "#222436";
+}
+
 layout {
     gaps 8
 
@@ -100,7 +104,7 @@ layout {
 
         width 2
         active-color "#fca7ea"
-        inactive-color "#223436"
+        inactive-color "#1e2030"
 
         urgent-color "#9b0000"
 
@@ -169,7 +173,13 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 10
+  match title="Spotify"
+  open-maximized true
+  open-on-workspace "4"
+}
+
+window-rule {
+    geometry-corner-radius 5
     clip-to-geometry true
 }
 
@@ -180,7 +190,7 @@ binds {
 
     Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
     Mod+A { spawn "rofi" "-show" "window"; }
-    Mod+S { spawn "rofi" "-show" "ssh"; }
+    Mod+S { spawn "~/.local/bin/browse.sh"; }
     Mod+E { spawn "rofimoji"; }
     Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     Mod+P { spawn "~/.local/bin/power.sh"; }
@@ -374,7 +384,9 @@ binds {
     Alt+Print { screenshot-window; }
 
       Mod+Z hotkey-overlay-title="wallpaper" { spawn "/home/revalbtw/.local/bin/wp.sh"; }
-    Mod+B { spawn "/home/revalbtw/.local/bin/bar.sh"; }
+    Mod+B { spawn "/home/revalbtw/.local/bin/barsel.sh"; }
+    Mod+shift+B { spawn "/home/revalbtw/.local/bin/pywal.sh"; }
+    Mod+x { spawn-sh "hyprpicker | wl-copy"; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
