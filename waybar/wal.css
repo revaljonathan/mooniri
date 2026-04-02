@@ -1,4 +1,5 @@
 /* ── Waybar base ───────────────────────────────────────────── */
+@import "../../.cache/wal/colors-waybar.css";
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
     font-size: 15px;
@@ -6,41 +7,37 @@
     border-radius: 7;
     min-height: 0;
 }
-
 window#waybar {
-    background-color: #1e2030;
-    color: #c8d3f5;
+    background-color: @background;
+    color: @foreground;
 }
-
 /* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
-    background-color: #1e2030;
-    border: 1px solid #3a5456;
-    color: #c8d3f5;
+    background-color: @background;
+    border: 1px solid @foreground;
+    color: @foreground;
 }
-
 tooltip label {
-    color: #c8d3f5;
+    color: @foreground;
 }
-
 /* ── Generic module wrapper ────────────────────────────────── */
 .modules-left,
 .modules-center,
 .modules-right {
     padding: 0 2px;
 }
-
-
+/* ── Separator ─────────────────────────────────────────────── */
+#custom-separator {
+    color: @foreground;
+    padding: 0.5 0.5px;
+}
 /* ── Workspaces ────────────────────────────────────────────── */
 #workspaces {
     background: transparent;
-    border-radius: 12px;
 }
-
 #workspaces button {
-    background: #2f334d;
-    border-radius: 999px;
-    color: #c8d3f5;          
+    background: transparent;
+    color: @foreground;
     padding: 5 6px;
     border-bottom: 2px solid transparent;
     border-radius: 0;
@@ -48,134 +45,119 @@ tooltip label {
     box-shadow: none;
     min-width: 0;
 }
-
 #workspaces button:hover {
     background: transparent;
-    color: #c8d3f5;
+    color: @foreground;
     box-shadow: none;
 }
-
 #workspaces button.active {
-    color: #fca7ea;
-    border-bottom: 2px solid #fca7ea;
+    background-color: @foreground;
+    color: @background;
+    border-bottom: 2px solid @foreground;
 }
-
 #workspaces button.urgent {
-    color: #ff966c;
-    border-bottom: 2px solid #ff966c;
+    color: @foreground;
+    border-bottom: 2px solid @foreground;
 }
-
 /* hide the default focus box-shadow Waybar adds */
 #workspaces button:focus {
     box-shadow: none;
     background: transparent;
 }
-
 /* ── Window title ──────────────────────────────────────────── */
 #window {
-    color: #c8d3f5;
-    padding: 1.5 1.5px;
+    background-color: @foreground;
+    color: @background;
+    padding: 2 5px;
 }
-
 /* ── Clock ─────────────────────────────────────────────────── */
 #clock {
-    color: #c8d3f5;
-    border-radius: 12px;
-    background-color: #2f334d;
-    padding: 1.5 8px;
+    color: @foreground;
+    padding: 1 2.5px;
 }
-
-
+/* ── CPU ────────────────────────────────────────────────────── */
+#cpu {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+#cpu label:first-child {
+    color: @foreground;
+}
+/* ── Memory ─────────────────────────────────────────────────── */
+#memory {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+/* ── Temperature ────────────────────────────────────────────── */
+#temperature {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+#temperature.critical {
+    color: @foreground;
+}
+#disk {
+    color: @foreground;
+    padding: 1 2.5px;
+}
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
-    color: #c8d3f5;
-    padding: 1.5 1.5px;
+    color: @foreground;
+    padding: 1 2.5px;
 }
-
 /* ── Battery ────────────────────────────────────────────────── */
 #battery {
-    color: #c8d3f5;
-    padding: 1.5 1.5px;
+    color: @foreground;
+    padding: 1 2.5px;
 }
-
 #battery.charging,
 #battery.plugged {
-    color: #c8d3f5;           /* soft green when charging */
+    color: @foreground;
 }
-
 #battery.warning:not(.charging) {
-    color: #c8d3f5;
+    color: @foreground;
 }
-
 #battery.critical:not(.charging) {
-    color: #c8d3f5;
+    color: @foreground;
     animation: blink 0.5s step-end infinite alternate;
 }
-
 @keyframes blink {
     to { color: transparent; }
 }
-
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #c8d3f5;
-    padding: 1.5 1.5px;
+    color: @foreground;
+    padding: 1 2.5px;
 }
-
 #network.disconnected {
-    color: #c8d3f5;
+    color: @foreground;
 }
-
 /* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
-    color: #c8d3f5;
-    padding: 1.5 1.5px;
+    color: @foreground;
+    padding: 1 2.5px;
 }
-
 #pulseaudio.muted {
-  padding: 1.5 1.5px;
-  color: #c8d3f5;
+    padding: 1 2.5px;
+    color: @foreground;
 }
-
 #pulseaudio.microphone {
-  padding: 1.5 1.5px;
-  color: #c8d3f5;
+    padding: 1 2.5px;
+    color: @foreground;
 }
-
 #pulseaudio.microphone#muted {
-  padding: 1.5 1.5px;
-  color: #c8d3f5;
+    padding: 1 2.5px;
+    color: @foreground;
 }
-
-
 /* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {
-    color: #4fd6be;
-    padding: 1.5 1.5px;
+    color: @foreground;
+    padding: 1 2.5px;
 }
-
 #custom-weather {
-    color: #c099ff;
-    padding: 1.5 1.5px;
-   }
-
-
-/* ── Icon color override ─────────────────────────────────────
-   Waybar renders nerd font icons as text inside the label.
-   We target the Pango markup span or use a CSS trick to
-   recolor just the icon glyph by wrapping it with the
-   niri/window label selector. Since icons are inline text,
-   the cleanest approach is to set the module color to the
-   icon color and override text with a span in the format
-   string — OR just set both to a blend and rely on the
-   format strings to use <span> markup.
-
-   If you want to split icon vs text color, update each
-   module's "format" in config.jsonc to use Pango markup:
-     "format": "<span color='#ff966c'></span> {usage}%"
-   Then the CSS below keeps text at pink and icons at orange. */
-
-/* ── Scrollbar (if any) ─────────────────────────────────────── */
+    color: @foreground;
+    padding: 1 2.5px;
+}
 scrollbar {
     background: transparent;
 }

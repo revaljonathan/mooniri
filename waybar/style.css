@@ -76,9 +76,12 @@ tooltip label {
 
 /* ── Window title ──────────────────────────────────────────── */
 #window {
+
     color: #fca7ea;
     padding: 1 2.5px;
 }
+
+
 
 /* ── Clock ─────────────────────────────────────────────────── */
 #clock {
@@ -192,23 +195,24 @@ tooltip label {
     padding: 1 2.5px;
    }
 
+#custom-pac {
+  color: #86e1fc;
+  padding: 1 2.5px;
+}
 
-/* ── Icon color override ─────────────────────────────────────
-   Waybar renders nerd font icons as text inside the label.
-   We target the Pango markup span or use a CSS trick to
-   recolor just the icon glyph by wrapping it with the
-   niri/window label selector. Since icons are inline text,
-   the cleanest approach is to set the module color to the
-   icon color and override text with a span in the format
-   string — OR just set both to a blend and rely on the
-   format strings to use <span> markup.
+#custom-next {
+  color: #4fd6be;
+  padding: 1 2.5px;
 
-   If you want to split icon vs text color, update each
-   module's "format" in config.jsonc to use Pango markup:
-     "format": "<span color='#ff966c'></span> {usage}%"
-   Then the CSS below keeps text at pink and icons at orange. */
+}
 
-/* ── Scrollbar (if any) ─────────────────────────────────────── */
+#custom-before {
+  color: #4fd6be;
+  padding: 1 2.5px;
+
+}
+
+
 scrollbar {
     background: transparent;
 }

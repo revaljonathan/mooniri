@@ -1,0 +1,126 @@
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 15;
+    border: none;
+    border-radius: 7px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #c8d3f5;
+}
+
+/* Islands */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+}
+
+/* Every top-level module gets the island pill look */
+#workspaces,
+#tray,
+#window,
+#clock,
+#custom-pac,
+#custom-weather,
+#music,
+#hw {
+    background: #1e2030;
+    color: #c8d3f5;
+    padding: 4px 12px;
+    margin: 3px 4px;
+    border-radius: 12px;
+}
+
+
+
+/* Grouped modules share one island — override children so they don't double-up */
+#tray widget,
+#tray image,
+#tray musid,
+#backlight,
+#pulseaudio,
+#pulseaudio.microphone,
+#network,
+#battery,
+#memory,
+#cpu,
+#temperature {
+    background: transparent;
+    color: #c8d3f5;
+    padding: 0 6px;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* Workspaces */
+#workspaces button {
+    background: transparent;
+    color: #c8d3f5;
+    padding: 2px 1px;
+    margin: 0 2px;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: #313244;
+    color: #c8d3f5;
+    box-shadow: none;
+}
+
+#workspaces button.active {
+    background: #fca7ea;
+    color: #1e2030;
+    border-radius: 999px;
+    padding: 2px 6px;
+}
+
+#workspaces button.urgent {
+    background: #f38ba8;
+    color: #1e2030;
+}
+
+#workspaces button.occupied {
+    background: #313244;
+    color: #cba6f7;
+}
+
+/* Battery states */
+#battery.warning {
+    color: #fab387;
+}
+
+#battery.critical {
+    color: #f38ba8;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+/* Temperature critical */
+#temperature.critical {
+    color: #f38ba8;
+}
+
+/* Spotify */
+
+/* Weather */
+#custom-weather {
+    color: #c8d3f5;
+}
+
+/* Clock */
+#clock {
+    color: #c8d3f5;
+}
+
+/* Window title */
+#window {
+    color: #c8d3f5;
+}
+
+

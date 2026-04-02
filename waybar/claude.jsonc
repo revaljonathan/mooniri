@@ -1,0 +1,157 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 6,
+  "margin-top": 8,
+  "margin-left": 12,
+  "margin-right": 12,
+
+  "modules-left": [
+    "custom/logo",
+    "niri/workspaces",
+    "niri/window"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "group/system",
+    "pulseaudio",
+    "network",
+    "battery",
+    "tray",
+    "custom/power"
+  ],
+
+  "custom/logo": {
+    "format": "  ",
+    "tooltip": false,
+    "on-click": "fuzzel"
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "●",
+      "default": "○",
+      "urgent": "◉"
+    },
+    "on-scroll-up": "niri msg action focus-workspace-up",
+    "on-scroll-down": "niri msg action focus-workspace-down"
+  },
+
+  "niri/window": {
+    "format": "  {title}",
+    "max-length": 40,
+    "separate-outputs": true,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹  $1",
+      "(.*) - fish": "  $1",
+      "(.*) - nvim": "  $1",
+      "": ""
+    }
+  },
+
+  "clock": {
+    "format": "  {:%H:%M}",
+    "format-alt": "  {:%A, %B %d %Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#c8d3f5'><b>{}</b></span>",
+        "days": "<span color='#c8d3f5'>{}</span>",
+        "weeks": "<span color='#636da6'><b>W{}</b></span>",
+        "weekdays": "<span color='#82aaff'><b>{}</b></span>",
+        "today": "<span color='#c099ff'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "group/system": {
+    "orientation": "inherit",
+    "modules": ["cpu", "memory", "temperature"]
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 2,
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": "  {percentage}%",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "  {temperatureC}°C",
+    "format-critical": "  {temperatureC}°C",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟  muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pwvucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "scroll-step": 2
+  },
+
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "󰤭  offline",
+    "format-linked": "󰈀  {ifname} (no IP)",
+    "tooltip-format-wifi": "{essid}  {signalStrength}%\n{ipaddr}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+    "on-click": "nm-connection-editor",
+    "interval": 5
+  },
+
+  "battery": {
+    "states": {
+      "good": 90,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}\n{power}W"
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8
+  },
+
+  "custom/power": {
+    "format": "  ",
+    "tooltip": false,
+    "on-click": "wlogout"
+  }
+}

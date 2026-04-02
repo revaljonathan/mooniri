@@ -71,7 +71,8 @@ output "eDP-1" {
 
 
 cursor {
-    xcursor-size 32
+    xcursor-size 36
+    xcursor-theme "catppuccin-macchiato-peach-cursors"
 }
 
 overview {
@@ -133,6 +134,10 @@ spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 //spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock"
 spawn-at-startup "swaync"
 spawn-at-startup "bash" "/home/revalbtw/.local/bin/gamma.sh"
+spawn-at-startup "wob"
+spawn-at-startup "sh" "-c" "tail -f $XDG_RUNTIME_DIR/wob.sock | wob"
+
+
 
 
 hotkey-overlay {
@@ -199,8 +204,8 @@ binds {
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    //XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
+    //XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
@@ -209,9 +214,24 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+    //XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+    //XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
+     // Example for Volume
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
+    }
+
+    // Example for Backlight
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn "sh" "-c" "brightnessctl set +5% | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn "sh" "-c" "brightnessctl set 5%- | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
+    }
     Mod+W repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }

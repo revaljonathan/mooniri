@@ -10,6 +10,7 @@
         "niri/workspaces",
         "custom/separator",
         "niri/window"
+        //"custom/updates"
         //"custom/separator"
     ],
 
@@ -29,6 +30,8 @@
         "network",
         "backlight",
         "custom/separator",
+        "custom/pac",
+        "custom/separator",
         //"disk",
         "cpu",
         //"custom/separator",
@@ -38,7 +41,7 @@
         // "backlight",
         // "custom/separator",
         "custom/separator",
-        "custom/spotify"
+        "group/music"
     ],
 
     "custom/separator": {
@@ -47,10 +50,11 @@
         "tooltip": false
     },
     
-    "sway/window": {
+    "niri/window": {
     "format": "{}",
     "max-length": 30,
-    "tooltip": true
+    "tooltip": true,
+  "separate-outputs": true
 },
 
     
@@ -137,8 +141,15 @@
     "format": "{}°C",
     "tooltip": true,
     "interval": 3600,
-    "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph",
+    "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
     "return-type": "json"
+},
+
+"custom/updates": {
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "on-click": "alacritty -e arch-update-script.sh",
+    "interval": 600
 },
 
 "disk": {
@@ -149,10 +160,23 @@
 },
 
 
+  "custom/pac": {
+    "exec": "~/.local/bin/pacman.sh",
+    "interval": 3600,
+    "on-click": "kitty -e paru -Syu"
+  },
 
+  "custom/next": {
+    "format": " ",
+    "on-click": "playerctl next",
+    "tooltip": "play next"
+  },
 
-
-
+    "custom/before": {
+    "format": "  ",
+    "on-click": "playerctl previous",
+    "tooltip": "play before"
+  },
 
        "custom/spotify": {
 	    "exec": "~/.local/bin/spotify.sh",
@@ -161,4 +185,13 @@
 	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
 "on-scroll-down": "playerctl -p spotify volume 0.05-"
 	},
+
+    "group/music": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/spotify",
+      "custom/before",
+      "custom/next"
+    ]
+  },
 }
