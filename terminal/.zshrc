@@ -1,9 +1,13 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-    fastfetch
-fi
+#if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+ #   fastfetch
+#fi
+
+echo "\033[1;32m$(whoami)\033[0m on \033[1;34m$(hostname)\033[0m with \033[1;33m$(uname -r)\033[0m " 
+echo "alive for \033[0;36m$(uptime -p|sed 's/^up //')\033[0m"
+echo " "
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
