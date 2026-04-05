@@ -60,13 +60,14 @@ workspace "1" { }
 workspace "2" { }
 workspace "3" { }
 workspace "4" { }
+workspace "5" { }
 
 output "eDP-1" {
     mode "1920x1080@60.000"
     scale 1
     transform "normal"
 
-    position x=1280 y=0
+    position x=0 y=0
 }
 
 
@@ -132,13 +133,11 @@ spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 //spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock"
-spawn-at-startup "swaync"
 spawn-at-startup "bash" "/home/revalbtw/.local/bin/gamma.sh"
 spawn-at-startup "wob"
 spawn-at-startup "sh" "-c" "tail -f $XDG_RUNTIME_DIR/wob.sock | wob"
-
-
-
+spawn-at-startup "/home/revalbtw/.local/bin/sleep.sh"
+spawn-at-startup "dunst"
 
 hotkey-overlay {
     skip-at-startup
@@ -184,6 +183,22 @@ window-rule {
 }
 
 window-rule {
+    // Match the GTK portal window
+    match app-id="xdg-desktop-portal-gtk"
+    
+    // Set preferred dimensions in logical pixels
+    min-width 700
+    min-height 500 
+    max-width 1000
+    max-height 800
+    
+    // Optionally force it to open floating if it isn't already
+    open-floating true
+}
+
+
+
+window-rule {
     geometry-corner-radius 5
     clip-to-geometry true
 }
@@ -206,7 +221,7 @@ binds {
 
     //XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
     //XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    // XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -217,21 +232,28 @@ binds {
     //XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     //XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
-     // Example for Volume
-    XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
-    }
-    XF86AudioLowerVolume allow-when-locked=true {
-        spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
-    }
+   // XF86AudioRaiseVolume allow-when-locked=true {
+   //  spawn "sh" "-c" "current=$(pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}'); [ \"$current\" -lt 100 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%; pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
+   // }
+   // XF86AudioLowerVolume allow-when-locked=true {
+   //  spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ -5%; pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
+   // }
+   //
+   //  XF86MonBrightnessUp allow-when-locked=true {
+   //      spawn "sh" "-c" "brightnessctl set +5% | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
+   //  }
+   //  XF86MonBrightnessDown allow-when-locked=true {
+   //      spawn "sh" "-c" "brightnessctl set 5%- | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
+   //  }
+   //
+   //
+    XF86AudioRaiseVolume  { spawn "~/.local/bin/dunstvol.sh" "up"; }
+    XF86AudioLowerVolume  { spawn "~/.local/bin/dunstvol.sh" "down"; }
+    XF86AudioMute         { spawn "~/.local/bin/dunstvol.sh" "mute"; }
+    XF86MonBrightnessUp   { spawn "~/.local/bin/dunstback.sh" "up"; }
+    XF86MonBrightnessDown { spawn "~/.local/bin/dunstback.sh" "down"; }
+    
 
-    // Example for Backlight
-    XF86MonBrightnessUp allow-when-locked=true {
-        spawn "sh" "-c" "brightnessctl set +5% | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-    }
-    XF86MonBrightnessDown allow-when-locked=true {
-        spawn "sh" "-c" "brightnessctl set 5%- | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-    }
     Mod+W repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
