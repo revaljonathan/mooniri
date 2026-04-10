@@ -3,8 +3,8 @@
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
-    "width": 1900, // Waybar width
-    "spacing": 6, // Gaps between modules (4px)
+    "width": 1200, // Waybar width
+    "spacing": 2, // Gaps between modules (4px)
     
     "modules-left": [
         "niri/workspaces"
@@ -14,11 +14,11 @@
         "clock"
     ],
     "modules-right": [
-      "battery",
-    "custom/separator",
     "backlight",
     	"pulseaudio",
-        "network"
+        "network",
+          "custom/separator",
+          "battery"
       ],
     "custom/separator": {
         "format": "|",
@@ -36,7 +36,8 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%A, %d %B %H:%M}",
+        //"format": "{:%A, %d %B %H:%M}",
+        "format": "{:%H:%M}",
         "on-click": "kitty -e calcurse"
     },
     "cpu": {
@@ -44,11 +45,7 @@
         "tooltip": false
     },
 
-      "custom/separator": {
-        "format": "-",
-        "interval": "once",
-        "tooltip": false
-    },
+ 
     "memory": {
         "format": " {}%"
     },
@@ -62,7 +59,7 @@
     },
    "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent}%",
+    "format": "{icon}",
     "format-icons": ["", "", ""],
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-",
@@ -76,8 +73,8 @@
         },
         "format": "{capacity}% {icon} - {time}",
         "format-full": "{capacity}% {icon}",
-        "format-charging":" {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-charging":"󱐋 {capacity}%",
+        "format-plugged": "󱐋 {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""],
@@ -87,7 +84,7 @@
         "bat": "BAT2"
     },
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
@@ -96,7 +93,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": " {volume}%",
+        "format": "",
         //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
         "format-bluetooth-muted": "󰅶 {icon} {format_source}",
         "format-muted": "󰅶 " , //{format_source}",

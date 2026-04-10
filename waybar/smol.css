@@ -14,13 +14,13 @@ window#waybar {
 
 /* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
-    background-color: #1a2a2c;
-    border: 1px solid #3a5456;
-    color: #fca7ea;
+    background-color: #222436;
+    border: 1px solid #2f334d;
+    color: #c8d3f5;
 }
 
 tooltip label {
-    color: #fca7ea;
+    color: #c8d3f5;
 }
 
 /* ── Generic module wrapper ────────────────────────────────── */
@@ -115,7 +115,7 @@ tooltip label {
 
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
-    color: #ffc666;
+    color: #b4f9f8;
     padding: 1 5.5px;
 }
 
@@ -145,7 +145,7 @@ tooltip label {
 
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #4fd6be;
+    color: #b4f9f8;
     padding: 1 5.5px;
 }
 
@@ -155,7 +155,7 @@ tooltip label {
 
 /* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
-    color: #82aaff;
+    color: #b4f9f8;
     padding: 1 5.5px;
 }
 

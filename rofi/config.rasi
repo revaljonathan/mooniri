@@ -1,5 +1,4 @@
 configuration {
-  modes: "window,emoji:/usr/bin/rofimoji,ssh,drun";
     modes:              "drun";
     sorting-method:     "normal";
     show-icons:         true;
@@ -48,9 +47,7 @@ configuration {
 /* ── Window ───────────────────────────────────────────────────────────── */
 window {
     width:            620px;
-    background-color: @bg1;
-    border:           2px;
-    border-color:     @accent;
+    background-color: @bg0;
     border-radius:    10px;
     padding:          0;
 }
@@ -66,7 +63,6 @@ mainbox {
 /* ── Input bar ────────────────────────────────────────────────────────── */
 inputbar {
     background-color: @bg2;
-    border-radius:    8px;
     padding:          10px 14px;
     margin:           0 0 10px 0;
     children:         [ prompt, entry ];
@@ -99,7 +95,6 @@ button {
     background-color: @bg2;
     text-color:       @fg2;
     border-radius:    6px;
-    padding:          5px 12px;
     cursor:           pointer;
 }
 
@@ -113,7 +108,6 @@ listview {
     background-color: transparent;
     columns:          1;
     lines:            8;
-    scrollbar:        true;
     spacing:          4px;
     fixed-height:     false;
 }
@@ -155,21 +149,18 @@ element normal.active {
 element selected.normal {
     background-color: @bg3;
     text-color:       @fg0;
-    border:           0 0 0 3px;
     border-color:     @accent;
 }
 
 element selected.urgent {
     background-color: @bg3;
     text-color:       @urgent;
-    border:           0 0 0 3px;
     border-color:     @urgent;
 }
 
 element selected.active {
     background-color: @bg3;
     text-color:       @cyan;
-    border:           0 0 0 3px;
     border-color:     @cyan;
 }
 

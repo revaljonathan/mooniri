@@ -43,7 +43,8 @@ tooltip label {
 
 #workspaces button {
     background: transparent;
-    color: #6b7a8a;          
+    color: #fca7ea; 
+    opacity: 0.75;
     padding: 5 6px;
     border-bottom: 2px solid transparent;
     border-radius: 0;
@@ -58,8 +59,14 @@ tooltip label {
     box-shadow: none;
 }
 
+#workspaces button.empty {
+    color: #828bb8;
+}
+
+
 #workspaces button.active {
     color: #fca7ea;
+    opacity: 1;
     border-bottom: 2px solid #fca7ea;
 }
 
@@ -76,14 +83,10 @@ tooltip label {
 
 /* ── Window title ──────────────────────────────────────────── */
 #window {
-
     color: #fca7ea;
     padding: 1 2.5px;
 }
 
-
-
-/* ── Clock ─────────────────────────────────────────────────── */
 #clock {
     color: #ffc777;
     padding: 1 2.5px;

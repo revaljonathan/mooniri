@@ -30,8 +30,6 @@
         "network",
         "backlight",
         "custom/separator",
-        "custom/pac",
-        "custom/separator",
         //"disk",
         "cpu",
         //"custom/separator",
@@ -113,7 +111,7 @@
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
         "format-disconnected": "󱛅 ",
-        "on-click": "nmgui"
+        "on-click": "~/.local/bin/wifi.sh"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -140,17 +138,14 @@
     "custom/weather": {
     "format": "{}°C",
     "tooltip": true,
-    "interval": 3600,
+    "interval": 5400,
     "exec": "wttrbar --nerd --hide-conditions --date-format '%m/%d' --mph --location=Semarang",
     "return-type": "json"
 },
 
-"custom/updates": {
-    "format": " {}",
-    "exec": "checkupdates | wc -l",
-    "on-click": "alacritty -e arch-update-script.sh",
-    "interval": 600
-},
+
+
+
 
 "disk": {
     "interval": 300,
@@ -158,13 +153,6 @@
     "path": "/",
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
-
-
-  "custom/pac": {
-    "exec": "~/.local/bin/pacman.sh",
-    "interval": 3600,
-    "on-click": "kitty -e paru -Syu"
-  },
 
   "custom/next": {
     "format": " ",
