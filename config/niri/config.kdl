@@ -80,8 +80,14 @@ overview {
   backdrop-color "#222436";
 }
 
+layer-rule {
+    match namespace="^wallpaper$" // Or match your specific tool (e.g., swaybg)
+    place-within-backdrop true
+}
+
 layout {
-    gaps 8
+    gaps 6
+    background-color "transparent"
 
     center-focused-column "never"
 
@@ -132,10 +138,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-//spawn-at-startup "swayidle" "-w" "before-sleep" "swaylock"
 spawn-at-startup "bash" "/home/revalbtw/.local/bin/gamma.sh"
-spawn-at-startup "wob"
-spawn-at-startup "sh" "-c" "tail -f $XDG_RUNTIME_DIR/wob.sock | wob"
 spawn-at-startup "/home/revalbtw/.local/bin/sleep.sh"
 spawn-at-startup "dunst"
 
@@ -199,7 +202,7 @@ window-rule {
 
 
 window-rule {
-    geometry-corner-radius 5
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -218,10 +221,6 @@ binds {
     Mod+Shift+S { spawn "sh" "-c" "swaylock -f && systemctl suspend"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-
-    //XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
-    //XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-    // XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -229,24 +228,7 @@ binds {
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    //XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
-    //XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-
-   // XF86AudioRaiseVolume allow-when-locked=true {
-   //  spawn "sh" "-c" "current=$(pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}'); [ \"$current\" -lt 100 ] && pactl set-sink-volume @DEFAULT_SINK@ +5%; pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
-   // }
-   // XF86AudioLowerVolume allow-when-locked=true {
-   //  spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ -5%; pactl get-sink-volume @DEFAULT_SINK@ | head -n1 | awk '{print substr($5, 1, length($5)-1)}' > $XDG_RUNTIME_DIR/wob.sock";
-   // }
-   //
-   //  XF86MonBrightnessUp allow-when-locked=true {
-   //      spawn "sh" "-c" "brightnessctl set +5% | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-   //  }
-   //  XF86MonBrightnessDown allow-when-locked=true {
-   //      spawn "sh" "-c" "brightnessctl set 5%- | sed -En 's/.*\\(([0-9]+)%\\).*/\\1/p' > $XDG_RUNTIME_DIR/wob.sock";
-   //  }
-   //
-   //
+   
     XF86AudioRaiseVolume  { spawn "~/.local/bin/dunstvol.sh" "up"; }
     XF86AudioLowerVolume  { spawn "~/.local/bin/dunstvol.sh" "down"; }
     XF86AudioMute         { spawn "~/.local/bin/dunstvol.sh" "mute"; }
@@ -418,6 +400,7 @@ binds {
 
 
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+t { toggle-window-floating; }
 
     Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }

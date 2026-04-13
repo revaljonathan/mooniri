@@ -9,35 +9,27 @@
     "modules-left": [
         "niri/workspaces",
         "custom/separator",
-        "niri/window"
-        //"custom/updates"
-        //"custom/separator"
+        "cpu",
+        "temperature",
+        "custom/separator",
+        "memory",
+        "custom/separator"
     ],
 
     "modules-center": [
+        "clock",
+        "custom/separator",
+         "custom/weather",
     ],
     "modules-right": [
-      "custom/separator",
-    	"clock",
-      "custom/separator",
-      "custom/weather",
       "custom/separator",
     	"battery",
     	"custom/separator",
        "pulseaudio#microphone",
         "pulseaudio",
-        "custom/separator",
-        "network",
         "backlight",
         "custom/separator",
-        //"disk",
-        "cpu",
-        //"custom/separator",
-        "memory",
-        //"custom/separator",
-        "temperature",
-        // "backlight",
-        // "custom/separator",
+        "network",
         "custom/separator",
         "group/music"
     ],
@@ -50,7 +42,7 @@
     
     "niri/window": {
     "format": "{}",
-    "max-length": 30,
+    "max-length": 55,
     "tooltip": true,
   "separate-outputs": true
 },
@@ -59,7 +51,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%A, %d %B %H:%M}",
+        "format": " {:%A, %d %B %H:%M}",
         "on-click": "kitty -e calcurse"
     },
     "cpu": {
@@ -67,7 +59,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": " {}%"
+        "format": " {used:0.1f}GiB"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -106,7 +98,8 @@
         "bat": "BAT2"
     },
     "network": {
-        "format-wifi": " {signalStrength}%",
+        "max-length": 15,
+        "format-wifi": " {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
@@ -118,7 +111,7 @@
         "format": " {volume}%",
         //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
         //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
-        "format-muted": "󰅶 " , //{format_source}",
+        "format-muted": "󰅶" , //{format_source}",
         //"format-source": " {volume}%",
         //"format-source-muted": " ",
         "on-click": "pavucontrol"
@@ -127,7 +120,7 @@
     "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": " {volume}%",
-    "format-source-muted": " ",
+    "format-source-muted": "",
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
     "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
@@ -154,22 +147,15 @@
     "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
 
-  "custom/next": {
-    "format": " ",
-    "on-click": "playerctl next",
-    "tooltip": "play next"
-  },
 
-    "custom/before": {
-    "format": "  ",
-    "on-click": "playerctl previous",
-    "tooltip": "play before"
-  },
 
        "custom/spotify": {
+        "max-length": 25,
 	    "exec": "~/.local/bin/spotify.sh",
-	    "interval": 8,
-	    "on-click": "playerctl -p spotify play-pause",
+	    "interval": 2,
+        "on-click": "playerctl next",
+        "on-click-right": "playerctl previous",
+	    "on-click-middle": "playerctl -p spotify play-pause",
 	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
 "on-scroll-down": "playerctl -p spotify volume 0.05-"
 	},

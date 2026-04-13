@@ -45,11 +45,9 @@ cursor_trail_start_threshold 0
 window_padding_width 5 12 2 12
 
 
-# BEGIN_KITTY_THEME
-# Catppuccin-Mocha
 # END_KITTY_THEME
 include current-theme.conf
-cursor #f2cdcd
+cursor #f5e0dc
 
 map ctrl+shift+left neighboring_window left
 map ctrl+shift+right neighboring_window right
@@ -58,6 +56,7 @@ map ctrl+shift+down neighboring_window down
 
 map ctrl+tab next_tab
 map ctrl+` previous_tab
+tab_title_template {title}
 
 
 # BEGIN_KITTY_FONTS
@@ -67,3 +66,7 @@ italic_font      auto
 bold_italic_font auto
 font_size        13
 # END_KITTY_FONTS
+
+
+
+

@@ -44,10 +44,6 @@
     "type": "packages"
     },
     {
-    "key": "{#38;5;153} {#38;5;5}{icon} {#keys}{#38;5;153}",
-    "type": "uptime"
-    },
-    {
     "key": "{#38;5;153} {#38;5;6} {#keys}{#38;5;153}",
     "type": "command",
         "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days"

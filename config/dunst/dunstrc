@@ -5,16 +5,16 @@ frame_width = 0
 highlight = "#86e1fc"
 font = JetBrainsMono Nerd font 13
 width = (300, 900)
-height = (50, 50)
+height = (50, 200)
 progress_bar = true
 progress_bar_height = 10
 progress_bar_corner_radius = 4
-progress_bar_frame_width = 0
+progress_bar_frame_width = 1
 progress_bar_min_width = 300
 progress_bar_max_width = 300
 padding = 6
-origin = top-center
-format = "<b>%s</b>\n<span foreground='#9399b2ff'>%a</span>\n%b"
+origin = top-right
+format = "<b>%s</b>\n%b"
 
 
 [urgency_low]

@@ -9,7 +9,7 @@
 
 window#waybar {
     background-color: #222436;
-    color: #fca7ea;
+    color: #b4f9f8;
 }
 
 /* ── Tooltip ───────────────────────────────────────────────── */
@@ -83,7 +83,7 @@ tooltip label {
 
 /* ── Window title ──────────────────────────────────────────── */
 #window {
-    color: #fca7ea;
+    color: #b4f9f8;
     padding: 1 2.5px;
 }
 
@@ -94,7 +94,7 @@ tooltip label {
 
 /* ── CPU ────────────────────────────────────────────────────── */
 #cpu {
-    color: #fca7ea;
+    color: #ff996c;
     padding: 1 2.5px;
 }
 
@@ -105,13 +105,13 @@ tooltip label {
 
 /* ── Memory ─────────────────────────────────────────────────── */
 #memory {
-    color: #fca7ea;
+    color: #4fd6be;
     padding: 1 2.5px;
 }
 
 /* ── Temperature ────────────────────────────────────────────── */
 #temperature {
-    color: #fca7ea;
+    color: #ff996c;
     padding: 1 2.5px;
 }
 
@@ -127,7 +127,7 @@ tooltip label {
 
 /* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
-    color: #ff966c;
+    color: #82aaff;
     padding: 1 2.5px;
 }
 
@@ -157,7 +157,7 @@ tooltip label {
 
 /* ── Network ────────────────────────────────────────────────── */
 #network {
-    color: #ff966c;
+    color: #fca7ea;
     padding: 1 2.5px;
 }
 
