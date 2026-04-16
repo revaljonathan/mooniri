@@ -3,7 +3,9 @@
 my personal dotfiles for niri 
 
 file manager: thunar, yazi
+
 terminal: kitty
+
 shell: zsh 
 
 ![logo](assets/as1.png) 
