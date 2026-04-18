@@ -1,0 +1,119 @@
+/* ── core idea:
+   almost everything is fg_dark (#828bb8) or comment (#545c7e)
+   only 3 things get accent color: clock (yellow), network+spotify (teal), active workspace (purple)
+   separators and labels use fg_gutter (#3b4261) so they nearly disappear
+────────────────────────────────────────────────────── */
+
+window#waybar {
+    background-color: #222436;   /* bg_dark instead of bg — slightly darker, more recessed */
+    color: #828bb8;
+}
+tooltip {
+    background-color: #222436;
+    border: 1px solid #2f334d;   /* bg_highlight */
+    color: #c8d3f5;
+}
+tooltip label { color: #c8d3f5; }
+
+#custom-separator {
+    color: #3b4261;              /* fg_gutter — nearly invisible */
+    padding: 0 0.5px;
+}
+
+/* ── workspaces ── */
+#workspaces button {
+    background: transparent;
+    color: #545c7e;              /* comment — dim by default */
+    opacity: 1;
+    padding: 5px 6px;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    box-shadow: none;
+    min-width: 0;
+}
+#workspaces button:hover {
+    background: transparent;
+    color: #828bb8;
+    box-shadow: none;
+}
+#workspaces button.empty  { color: #3b4261; }  /* fg_gutter — nearly gone */
+#workspaces button.active {
+    color: #c099ff;              /* purple — only accent here */
+    border-bottom: 2px solid #c099ff;
+}
+#workspaces button.urgent {
+    color: #ff757f;
+    border-bottom: 2px solid #ff757f;
+}
+#workspaces button:focus {
+    box-shadow: none;
+    background: transparent;
+}
+
+/* ── window title ── */
+#window {
+    color: #545c7e;              /* comment — subdued */
+    padding: 1px 2.5px;
+}
+
+/* ── clock — the one warm accent ── */
+#clock {
+    color: #c8d3f5;
+    padding: 1px 2.5px;
+}
+
+/* ── all system stats: unified gray ── */
+#cpu, #memory, #temperature, #disk, #backlight {
+    color: #828bb8;
+    padding: 1px 2.5px;
+}
+#temperature.critical { color: #ff757f; }
+
+/* ── battery ── */
+#battery {
+    color: #828bb8;
+    padding: 1px 2.5px;
+}
+#battery.charging,
+#battery.plugged      { color: #828bb8; }
+#battery.warning:not(.charging) { color: #828bb8; }
+#battery.critical:not(.charging) {
+    color: #ff757f;
+    animation: blink 0.5s step-end infinite alternate;
+}
+@keyframes blink { to { color: transparent; } }
+
+/* ── network — teal accent (you notice it when it changes) ── */
+#network {
+    color: #828bb8;
+    padding: 1px 2.5px;
+}
+#network.disconnected { color: #ff757f; }
+
+/* ── pulseaudio — back to gray ── */
+#pulseaudio,
+#pulseaudio.muted,
+#pulseaudio.microphone {
+    color: #828bb8;
+    padding: 1px 2.5px;
+}
+#pulseaudio.microphone#muted {
+    color: #ff757f;
+    padding: 1px 2.5px;
+}
+
+/* ── spotify & media — teal group ── */
+#custom-spotify,
+#custom-next,
+#custom-before {
+    color: #c8d3f5;
+    padding: 1px 2.5px;
+}
+
+/* ── weather & pac — gray, not cyan ── */
+#custom-weather,
+#custom-pac {
+    color: #828bb8;              /* was cyan, now gray — less noise */
+    padding: 1px 2.5px;
+}

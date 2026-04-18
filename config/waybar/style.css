@@ -1,4 +1,3 @@
-/* ── Waybar base ───────────────────────────────────────────── */
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
     font-size: 15px;
@@ -9,10 +8,9 @@
 
 window#waybar {
     background-color: #222436;
-    color: #b4f9f8;
+    color: #65bcff;
 }
 
-/* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
     background-color: #222436;
     border: 1px solid #3a5456;
@@ -23,20 +21,17 @@ tooltip label {
     color: #c8d3f5;
 }
 
-/* ── Generic module wrapper ────────────────────────────────── */
 .modules-left,
 .modules-center,
 .modules-right {
     padding: 0 2px;
 }
 
-/* ── Separator ─────────────────────────────────────────────── */
 #custom-separator {
     color: #4a6668;
     padding: 0.5 0.5px;
 }
 
-/* ── Workspaces ────────────────────────────────────────────── */
 #workspaces {
     background: transparent;
 }
@@ -75,41 +70,36 @@ tooltip label {
     border-bottom: 2px solid #ff966c;
 }
 
-/* hide the default focus box-shadow Waybar adds */
 #workspaces button:focus {
     box-shadow: none;
     background: transparent;
 }
 
-/* ── Window title ──────────────────────────────────────────── */
 #window {
     color: #b4f9f8;
     padding: 1 2.5px;
 }
 
 #clock {
+        /* color: #c8d4f5; */
     color: #ffc777;
     padding: 1 2.5px;
 }
 
-/* ── CPU ────────────────────────────────────────────────────── */
 #cpu {
     color: #ff996c;
     padding: 1 2.5px;
 }
 
-/* nerdfont icon inherits color — override to orange */
 #cpu label:first-child {
     color: #ff966c;
 }
 
-/* ── Memory ─────────────────────────────────────────────────── */
 #memory {
-    color: #4fd6be;
+    color: #c099ff;
     padding: 1 2.5px;
 }
 
-/* ── Temperature ────────────────────────────────────────────── */
 #temperature {
     color: #ff996c;
     padding: 1 2.5px;
@@ -120,20 +110,18 @@ tooltip label {
 }
 
 #disk {
-    color: #fca7ea;
+    color: #65bcff;
     padding: 1 2.5px;
 }
 
 
-/* ── Backlight ──────────────────────────────────────────────── */
 #backlight {
     color: #82aaff;
     padding: 1 2.5px;
 }
 
-/* ── Battery ────────────────────────────────────────────────── */
 #battery {
-    color: #ff966c;
+    color: #c3e88f;
     padding: 1 2.5px;
 }
 
@@ -143,7 +131,7 @@ tooltip label {
 }
 
 #battery.warning:not(.charging) {
-    color: #ffcc66;
+    color: #c3e88d;
 }
 
 #battery.critical:not(.charging) {
@@ -155,7 +143,6 @@ tooltip label {
     to { color: transparent; }
 }
 
-/* ── Network ────────────────────────────────────────────────── */
 #network {
     color: #fca7ea;
     padding: 1 2.5px;
@@ -165,7 +152,6 @@ tooltip label {
     color: #ffc777;
 }
 
-/* ── Pulseaudio ─────────────────────────────────────────────── */
 #pulseaudio {
     color: #82aaff;
     padding: 1 2.5px;
@@ -187,19 +173,18 @@ tooltip label {
 }
 
 
-/* ── Spotify ────────────────────────────────────────────────── */
 #custom-spotify {
     color: #4fd6be;
     padding: 1 2.5px;
 }
 
 #custom-weather {
-    color: #c099ff;
+    color: #86e1fc;
     padding: 1 2.5px;
    }
 
-#custom-pac {
-  color: #86e1fc;
+#custom-pacman {
+  color: #7aa2f7;
   padding: 1 2.5px;
 }
 

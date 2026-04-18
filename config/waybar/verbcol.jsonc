@@ -3,38 +3,25 @@
     "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
-    "width": 1900, // Waybar width
+    "width": 1920, // Waybar width
     "spacing": 6, // Gaps between modules (4px)
+       "margin-top": -4,
+    "margin-bottom": -7,
     
     "modules-left": [
         "niri/workspaces",
-        "custom/separator",
-        // "disk",
-        // "custom/separator",
-        "cpu",
-        "temperature",
-        "custom/separator",
-        "memory",
-        // "custom/separator",
-        // "custom/pacman",
-        "custom/separator"
+        "group/cpu",
+        "memory"
     ],
 
     "modules-center": [
         "clock",
-        "custom/separator",
          "custom/weather"
     ],
     "modules-right": [
-        "custom/separator",
     	"battery",
-    	"custom/separator",
-       "pulseaudio#microphone",
-        "pulseaudio",
-        "backlight",
-        "custom/separator",
+        "group/hw",
         "network",
-        "custom/separator",
         "group/music"
     ],
 
@@ -167,6 +154,23 @@
 	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
 "on-scroll-down": "playerctl -p spotify volume 0.05-"
 	},
+
+        "group/cpu": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "temperature"
+        ]
+    },
+
+    "group/hw": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio#microphone",
+            "pulseaudio",
+            "backlight"
+        ]
+    },
 
     "group/music": {
     "orientation": "horizontal",
