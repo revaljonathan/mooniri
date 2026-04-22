@@ -14,7 +14,7 @@ progress_bar_min_width = 300
 progress_bar_max_width = 300
 padding = 6
 origin = top-right
-format = "<b>%s</b>\n%b"
+format = "<b>%s</b>\n<span foreground='#9399b2ff'>%a</span>\n%b"
 
 
 [urgency_low]

@@ -1,0 +1,193 @@
+configuration {
+    modes:              "drun";
+    sorting-method:     "normal";
+    show-icons:         true;
+    terminal:           "kitty";
+    editor:             "micro";
+    matching:           "regex";
+    drun-match-fields:  "name";
+    /*display-run:        "Window:";
+    display-ssh:        " SSH:";
+    display-drun:       "󰀻 Apps:";
+        display-emoji:		"󱃞 Emoji";
+        */
+     kb-move-char-forward: "Right";
+    kb-move-char-back: "Left";
+    kb-mode-next: "Alt+Right";
+    kb-mode-previous: "Alt+Left";
+    
+}
+
+@theme "storm"
+
+/* ── Palette ──────────────────────────────────────────────────────────── */
+* {
+    bg0:     #1e2030;   /* bg_dark */
+    bg1:     #222436;   /* bg */
+    bg2:     #2f334d;   /* bg_highlight */
+    bg3:     #545c7e;   /* dark3 */
+    fg0:     #c8d3f5;   /* fg */
+    fg1:     #828bb8;   /* fg_dark */
+    fg2:     #737aa2;   /* dark5 */
+    red:     #ff757f;
+    green:   #c3e88d;
+    yellow:  #ffc777;
+    blue:    #82aaff;
+    magenta: #c099ff;
+    cyan:    #86e1fc;
+    purple:  #fca7ea;
+
+    accent:  @blue;
+    urgent:  @yellow;
+
+    background-color: transparent;
+    text-color:       @fg0;
+}
+
+/* ── Window ───────────────────────────────────────────────────────────── */
+window {
+    width:            520px;
+    background-color: @bg0;
+    border-radius:    0px;
+    padding:          0;
+}
+
+/* ── Main box ─────────────────────────────────────────────────────────── */
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, message, listview ];
+    spacing:          0;
+    padding:          12px;
+}
+
+/* ── Input bar ────────────────────────────────────────────────────────── */
+inputbar {
+    background-color: @bg2;
+    padding:          10px 14px;
+    margin:           0 0 10px 0;
+    children:         [ prompt, entry ];
+    spacing:          6px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+    font:             "JetBrains Mono Bold 12";
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @fg0;
+    placeholder:      "Search…";
+    placeholder-color: @fg2;
+    font:             "JetBrains Mono 12";
+    cursor:           text;
+}
+
+/* ── Mode switcher ────────────────────────────────────────────────────── */
+mode-switcher {
+    background-color: transparent;
+    margin:           0 0 10px 0;
+    spacing:          6px;
+}
+
+button {
+    background-color: @bg2;
+    text-color:       @fg2;
+    border-radius:    0px;
+    cursor:           pointer;
+}
+
+button selected {
+    background-color: @accent;
+    text-color:       @bg0;
+}
+
+/* ── List view ────────────────────────────────────────────────────────── */
+listview {
+    background-color: transparent;
+    columns:          1;
+    lines:            8;
+    spacing:          4px;
+    fixed-height:     false;
+}
+
+scrollbar {
+    width:            4px;
+    handle-width:     4px;
+    background-color: @bg2;
+    handle-color:     @accent;
+    border-radius:    0px;
+}
+
+/* ── List elements ────────────────────────────────────────────────────── */
+element {
+    background-color: transparent;
+    text-color:       @fg1;
+    border-radius:    0px;
+    padding:          8px 10px;
+    spacing:          8px;
+    orientation:      horizontal;
+    cursor:           pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       @fg1;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color:       @urgent;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color:       @cyan;
+}
+
+element selected.normal {
+    background-color: @bg3;
+    text-color:       @fg0;
+    border-color:     @accent;
+}
+
+element selected.urgent {
+    background-color: @bg3;
+    text-color:       @urgent;
+    border-color:     @urgent;
+}
+
+element selected.active {
+    background-color: @bg3;
+    text-color:       @cyan;
+    border-color:     @cyan;
+}
+
+element-icon {
+    background-color: transparent;
+    size:             24px;
+    cursor:           inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           inherit;
+    vertical-align:   0.5;
+    font:             "JetBrains Mono 12";
+}
+
+/* ── Message ──────────────────────────────────────────────────────────── */
+message {
+    background-color: @bg2;
+    border-radius:    0px;
+    padding:          8px 12px;
+    margin:           0 0 10px 0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:       @fg2;
+    font:             "JetBrains Mono 1i";
+}
