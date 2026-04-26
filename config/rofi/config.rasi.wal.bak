@@ -18,39 +18,15 @@ configuration {
     
 }
 
+@import "~/.cache/wal/colors-rofi-dark.rasi"
 
-@theme "storm"
 
-/* ── Palette ──────────────────────────────────────────────────────────── */
-* {
-    bg0:     #1e2030;   /* bg_dark */
-    bg1:     #222436;   /* bg */
-    bg2:     #2f334d;   /* bg_highlight */
-    bg3:     #545c7e;   /* dark3 */
-    fg0:     #c8d3f5;   /* fg */
-    fg1:     #828bb8;   /* fg_dark */
-    fg2:     #737aa2;   /* dark5 */
-    red:     #ff757f;
-    green:   #c3e88d;
-    yellow:  #ffc777;
-    blue:    #82aaff;
-    magenta: #c099ff;
-    cyan:    #86e1fc;
-    purple:  #fca7ea;
-
-    accent:  @blue;
-    urgent:  @yellow;
-
-    background-color: transparent;
-    text-color:       @fg0;
-}
 
 /* ── Window ───────────────────────────────────────────────────────────── */
+
 window {
     width:            520px;
-    background-color: @bg0;
-    border:           1px;
-    border-color:     @fg2;
+    background-color: @background;
     border-radius:    0px;
     padding:          0;
 }
@@ -65,8 +41,8 @@ mainbox {
 
 /* ── Input bar ────────────────────────────────────────────────────────── */
 inputbar {
-    background-color: @bg0;
-    padding:          1px 10px;
+    background-color: @background;
+    padding:          10px 14px;
     margin:           0 0 10px 0;
     children:         [ prompt, entry ];
     spacing:          6px;
@@ -74,31 +50,36 @@ inputbar {
 
 prompt {
     background-color: transparent;
-    text-color:       @accent;
+    text-color:       @foreground;
     font:             "JetBrains Mono Bold 12";
 }
 
 entry {
     background-color: transparent;
-    text-color:       @fg0;
+    text-color:       @foreground;
     placeholder:      "Search…";
-    placeholder-color: @fg2;
+    placeholder-color: @foreground;
     font:             "JetBrains Mono 12";
     cursor:           text;
 }
 
-
+/* ── Mode switcher ────────────────────────────────────────────────────── */
+mode-switcher {
+    background-color: transparent;
+    margin:           0 0 10px 0;
+    spacing:          6px;
+}
 
 button {
-    background-color: @bg2;
-    text-color:       @fg0;
-    border-radius:    1px;
+    background-color: @background;
+    text-color:       @foreground;
+    border-radius:    0px;
     cursor:           pointer;
 }
 
 button selected {
-    background-color: @accent;
-    text-color:       @bg0;
+    background-color: @foreground;
+    text-color:       @background;
 }
 
 /* ── List view ────────────────────────────────────────────────────────── */
@@ -113,15 +94,15 @@ listview {
 scrollbar {
     width:            4px;
     handle-width:     4px;
-    background-color: @bg2;
-    handle-color:     @accent;
+    background-color: @background;
+    handle-color:     @background;
     border-radius:    0px;
 }
 
 /* ── List elements ────────────────────────────────────────────────────── */
 element {
     background-color: transparent;
-    text-color:       @fg0;
+    text-color:       @foreground;
     border-radius:    0px;
     padding:          8px 10px;
     spacing:          8px;
@@ -131,35 +112,35 @@ element {
 
 element normal.normal {
     background-color: transparent;
-    text-color:       @fg0;
+    text-color:       @foreground;
 }
 
 element normal.urgent {
     background-color: transparent;
-    text-color:       @urgent;
+    text-color:       @foreground;
 }
 
 element normal.active {
     background-color: transparent;
-    text-color:       @cyan;
+    text-color:       @foreground;
 }
 
 element selected.normal {
-    background-color: @fg2;
-    text-color:       @bg0;
-    border-color:     @accent;
+    background-color: @foreground;
+    text-color:       @background;
+    border-color:     @background;
 }
 
 element selected.urgent {
-    background-color: @bg3;
-    text-color:       @urgent;
-    border-color:     @urgent;
+    background-color: @background;
+    text-color:       @background;
+    border-color:     @background;
 }
 
 element selected.active {
-    background-color: @bg3;
-    text-color:       @cyan;
-    border-color:     @cyan;
+    background-color: @background;
+    text-color:       @foreground;
+    border-color:     @foreground;
 }
 
 element-icon {
@@ -178,7 +159,7 @@ element-text {
 
 /* ── Message ──────────────────────────────────────────────────────────── */
 message {
-    background-color: @bg2;
+    background-color: @background;
     border-radius:    0px;
     padding:          8px 12px;
     margin:           0 0 10px 0;
@@ -186,6 +167,6 @@ message {
 
 textbox {
     background-color: transparent;
-    text-color:       @fg2;
+    text-color:       @foreground;
     font:             "JetBrains Mono 1i";
 }

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# todo-daemon.sh — background daemon for todo notifications
+# Run once at login: add to ~/.xinitrc, autostart, or systemd --user
+# Checks every 30 seconds and fires notify-send when a task's time is reached.
+
+TASKS_FILE="$HOME/.todo_tasks.json"
+
+[ -f "$TASKS_FILE" ] || echo "[]" >"$TASKS_FILE"
+
+while true; do
+    NOW=$(date +%H:%M)
+    TASK_COUNT=$(jq length "$TASKS_FILE" 2>/dev/null)
+
+    for i in $(seq 0 $((TASK_COUNT - 1))); do
+        TASK_TIME=$(jq -r ".[$i].time" "$TASKS_FILE")
+        TASK_NAME=$(jq -r ".[$i].name" "$TASKS_FILE")
+        NOTIFIED=$(jq -r ".[$i].notified" "$TASKS_FILE")
+
+        # Only notify if time matches and not yet notified
+        if [ "$TASK_TIME" = "$NOW" ] && [ "$NOTIFIED" = "false" ]; then
+            notify-send " Todo reminder" "$TASK_NAME" -i appointment -u normal
+            # Mark as notified so it doesn't fire again
+            jq ".[$i].notified = \"true\"" "$TASKS_FILE" >/tmp/todo_tmp.json &&
+                mv /tmp/todo_tmp.json "$TASKS_FILE"
+        fi
+    done
+
+    sleep 60
+done

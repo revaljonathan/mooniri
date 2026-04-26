@@ -1,6 +1,7 @@
+
 [global]
 separator_color= frame
-frame_color = "#8aadf4"
+frame_color = "#3b4261"
 frame_width = 0
 highlight = "#86e1fc"
 font = JetBrainsMono Nerd font 13
@@ -14,20 +15,20 @@ progress_bar_min_width = 300
 progress_bar_max_width = 300
 padding = 6
 origin = top-right
-format = "<b>%s</b>\n<span foreground='#9399b2ff'>%a</span>\n%b"
+format = "<b>%s</b>\n<span foreground='#636da6'>%a</span>\n%b"
 
 
 [urgency_low]
-background = "#2a2d4aff"
-foreground = "#e0e0ff"
+background = "#1e2030ff"
+foreground = "#c8d3f5"
 
 [urgency_normal]
-background = "#2a2d4aff"
-foreground = "#e0e0ff"
+background = "#1e2030ff"
+foreground = "#c8d3f5"
 
 [urgency_critical]
-background = "#2a2d4aff"
-foreground = "#e0e0ff"
+background = "#1e2030ff"
+foreground = "#c8d3f5"
 
 [volume_notifications]
     appname = volume
@@ -36,10 +37,10 @@ foreground = "#e0e0ff"
     set_stack_tag = volume
     appname = volume
 
+
 [brightness]
     appname = brightness
     summary = *
     history_ignore = true
     set_stack_tag = brightness
-
 
