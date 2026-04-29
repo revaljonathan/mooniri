@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-WALLPAPER_DIR="$HOME/pics/walls/"
-COLUMNS=4
-THUMB_SIZE=175
+WALLPAPER_DIR="$HOME/pics/walls/" # 👈 change this
+COLUMNS=4                         # 👈 columns in the grid
+THUMB_SIZE=175                    # 👈 thumbnail size in px
 TMPFILE=$(mktemp)
 
 find "$WALLPAPER_DIR" -maxdepth 1 -type f \
@@ -22,13 +22,13 @@ INDEX=$(
             -theme-str "
             window {
                 width: 900px;
-                border-radius: 16px;
             }
             mainbox {
                 padding: 12px;
                 spacing: 8px;
             }
             inputbar {
+                enabled: false;
                 padding: 10px 14px;
                 border-radius: 10px;
             }
