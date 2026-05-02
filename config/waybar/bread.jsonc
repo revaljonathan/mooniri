@@ -5,36 +5,55 @@
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1920, // Waybar width
     "spacing": 6, // Gaps between modules (4px)
-       "margin-top": -4,
-    "margin-bottom": -7,
     
     "modules-left": [
         "niri/workspaces",
-        "group/cpu",
-        "memory",
-        "battery"
+        "custom/separator",
+        "niri/window"
+        // "disk",
+        // "custom/separator",
+              // "custom/separator",
+        // "custom/pacman",
     ],
 
     "modules-center": [
-        "clock",
-         "custom/weather"
-    ],
+           ],
     "modules-right": [
-    	// "battery",
-        "group/hw",
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "cpu",
+        "temperature",
+        "custom/separator",
+        "memory",
+        "custom/separator",
+        "custom/spotify",
+        "custom/separator",
+        "custom/weather",
+        "custom/separator",
+        "clock",
+        "custom/separator",
+        "pulseaudio#microphone",
+        "pulseaudio",
         "network",
-        "group/music"
+        "backlight"
     ],
 
     "custom/separator": {
         "format": "|",
         "interval": "once",
         "tooltip": false
+    },  
+    "custom/separator2": {
+        "format": "|",
+        "interval": "once",
+        "exec-if": "pgrep spotify",
+        "tooltip": false
     },
     
     "niri/window": {
     "format": "{}",
-    "max-length": 20,
+    // "max-length": 90,
     "tooltip": true,
   "separate-outputs": true
 },
@@ -43,8 +62,9 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+
         "format": " {:%A, %d %B %H:%M}",
-               "format-alt": " {:%H:%M}",
+        "format-alt": " {:%H:%M}",
     },
     "cpu": {
         "format": " {usage}%",
@@ -63,7 +83,7 @@
     },
     "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent}%",
+    "format": "{icon} ",
     "format-icons": ["", "", ""],
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-",
@@ -91,16 +111,16 @@
     },
     "network": {
         "max-length": 15,
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
-        "format-disconnected": "󱛅",
+        "format-disconnected": "󱛅 ",
         "on-click": "~/.local/bin/wifi.sh"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": " {volume}%",
+        "format": "",
         //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
         //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
         "format-muted": "󰅶" , //{format_source}",
@@ -111,7 +131,7 @@
 
     "pulseaudio#microphone": {
     "format": "{format_source}",
-    "format-source": " {volume}%",
+    "format-source": "",
     "format-source-muted": "",
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
@@ -134,9 +154,6 @@
         "on-click": "kitty -e paru -Syu"
     },
 
-
-
-
 "disk": {
     "interval": 180,
     "format-alt": " {used} / {total}",
@@ -147,9 +164,8 @@
 
 
        "custom/spotify": {
-        "max-length": 35,
 	    "exec": "~/.local/bin/spotify.sh",
-    "exec-if": "pgrep spotify",
+        "max-length": 35,
 	    "interval": 5,
         "on-click": "playerctl next",
         "on-click-right": "playerctl previous",
@@ -157,23 +173,6 @@
 	    "on-scroll-up": "playerctl -p spotify volume 0.05+",
 "on-scroll-down": "playerctl -p spotify volume 0.05-"
 	},
-
-        "group/cpu": {
-        "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "temperature"
-        ]
-    },
-
-    "group/hw": {
-        "orientation": "horizontal",
-        "modules": [
-            "pulseaudio#microphone",
-            "pulseaudio",
-            "backlight",
-        ]
-    },
 
     "group/music": {
     "orientation": "horizontal",

@@ -1,0 +1,214 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", monospace;
+    font-size: 15px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @background;
+    color: @foreground;
+}
+
+tooltip {
+    background-color: @background;
+    border: 1px solid @foreground;
+    color: @foreground;
+}
+
+tooltip label {
+    color: @foreground;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 2px;
+}
+
+#custom-separator {
+    color: @foreground;
+    opacity: 0.5;
+    padding: 0.5 0.5px;
+}
+
+#workspaces {
+    background: transparent;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @foreground; 
+    opacity: 1;
+    padding: 5 6px;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    box-shadow: none;
+    min-width: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: @foreground;
+    box-shadow: none;
+}
+
+#workspaces button.empty {
+    color: @foreground;
+    opacity: 0.3;
+}
+
+
+#workspaces button.active {
+    background-color: @foreground;
+    opacity: 0.7;
+    color: @background;
+}
+
+#workspaces button.urgent {
+    color: @foreground;
+    border-bottom: 2px solid @foreground;
+}
+
+#workspaces button:focus {
+    box-shadow: none;
+    background: transparent;
+}
+
+#window {
+    background-color: @foreground;
+    opacity: 0.7;
+    color: @background;
+    padding: 1 2.5px;
+}
+
+#clock {
+        /* color: @foreground; */
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#cpu {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#cpu label:first-child {
+    color: @foreground;
+}
+
+#memory {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#temperature {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#temperature.critical {
+    color: @foreground;
+}
+
+#disk {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+
+#backlight {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#battery {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @foreground;           /* soft green when charging */
+}
+
+#battery.warning:not(.charging) {
+    color: @foreground;
+}
+
+#battery.critical:not(.charging) {
+    color: @foreground;
+    animation: blink 0.5s step-end infinite alternate;
+}
+
+@keyframes blink {
+    to { color: transparent; }
+}
+
+#network {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#network.disconnected {
+    color: @foreground;
+}
+
+#pulseaudio {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#pulseaudio.muted {
+  padding: 1 2.5px;
+  color: @foreground;
+}
+
+#pulseaudio.microphone {
+  padding: 1 2.5px;
+  color: @foreground;
+}
+
+#pulseaudio.microphone#muted {
+  padding: 1 2.5px;
+  color: @foreground;
+}
+
+
+#custom-spotify {
+    color: @foreground;
+    padding: 1 2.5px;
+}
+
+#custom-weather {
+    color: @foreground;
+    padding: 1 2.5px;
+   }
+
+#custom-pacman {
+  color: @foreground;
+  padding: 1 2.5px;
+}
+
+#custom-next {
+  color: @foreground;
+  padding: 1 2.5px;
+
+}
+
+#custom-before {
+  color: @foreground;
+  padding: 1 2.5px;
+
+}
+
+
+scrollbar {
+    background: transparent;
+}

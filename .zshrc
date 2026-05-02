@@ -5,15 +5,21 @@
  #   fastfetch
 #fi
 
-echo "\033[1;32m$(whoami)\033[0m on \033[1;34m$(hostname)\033[0m with \033[1;33m$(uname -r)\033[0m " 
-echo "alive for \033[0;36m$(uptime -p|sed 's/^up //')\033[0m"
-echo " "
+gf () {
+echo "\033[1;35mKernel  $(uname -r)\033[0m"
+echo "\033[1;36m Shell  $(echo $SHELL)"
+echo "\033[1;34m  Disk  $(df -B1G --output=size,used / | awk 'NR==2 {print $2 " GiB | " $1 " GiB"}')"
+echo "\033[0;32m   Upt  $(uptime -p|sed 's/^up //')"
+echo "\033[0;33m  Host  $(hostname)"
+echo ""
+}
+
+# gf 
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
-
+# PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # Created by newuser for 5.9
 
@@ -27,9 +33,9 @@ export EZA_CONFIG_DIR="$HOME/.config/eza/"
 export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=kitty
+export PDFVIEWER=zathura
+export IMAGEVIEWER=imv
 export COLORTERM=truecolor
-
-
 export PATH="$HOME/.cargo/bin:$PATH"
 export GOPATH=$HOME/.go
 export PATH="$GOPATH/bin:$PATH"
@@ -181,8 +187,6 @@ alias mic='micro'
 alias code='visual-studio-code-electron'
 
 # FILE VIEWERS
-alias see='bat'
-alias view='gwenview'
 alias zat='zathura'
 take() {
   mkdir -p "$1" && cd "$1"
@@ -207,6 +211,7 @@ alias x='exit'
 alias c='clear'
 alias lc='ls -s Extension'
 alias cd='z'
+alias clipwipe='rm -f ~/.cache/cliphist/db'
 # SHELL UTILS
 alias color='color_check'
 alias grep='rg --color=auto --line-number --smart-case'
@@ -240,6 +245,7 @@ alias clock='tty-clock -s -c -C 5'
 alias aq='asciiquarium'
 alias pipes='pipes.sh'
 alias q='fortune | cowsay -r'
+alias ff='fastfetch'
 alias plis='sudo'
 weather() {
   curl wttr.in/"$1"

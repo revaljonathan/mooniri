@@ -1,3 +1,5 @@
+@import "../../.cache/wal/colors-waybar.css";
+
 * {
     font-family: "JetBrainsMono Nerd Font Propo", monospace;
     font-size: 15px;
@@ -7,16 +9,16 @@
 }
 window#waybar {
     background-color: transparent;
-    color: #65bcff;
+    color: @foreground;
 }
 tooltip {
-    background-color: #222436;
+    background-color: @background;
     border: 1px solid #3a5456;
-    color: #c8d3f5;
+    color: @foreground;
     border-radius: 10px;
 }
 tooltip label {
-    color: #c8d3f5;
+    color: @foreground;
 }
 .modules-left,
 .modules-center,
@@ -47,7 +49,7 @@ tooltip label {
 #custom-pacman,
 #custom-separator,
 #window {
-    background-color: #222436;
+    background-color: @background;
     border-radius: 20px;
     padding: 2px 10px;
     margin: 3px 2px;
@@ -56,7 +58,7 @@ tooltip label {
 /* ── group/cpu island (cpu + temperature) ──────────────────── */
 /* The group box itself gets the pill background */
 #.module-group {
-    background-color: #222436;
+    background-color: @background;
     border-radius: 20px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -72,7 +74,7 @@ tooltip label {
 
 /* ── group/hw island (mic + speaker + backlight) ───────────── */
 #hw.module-group {
-    background-color: #222436;
+    background-color: @background;
     border-radius: 20px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -88,7 +90,7 @@ tooltip label {
 
 /* ── group/music island ─────────────────────────────────────── */
 #music.module-group {
-    background-color: #222436;
+    background-color: @background;
     border-radius: 20px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -108,15 +110,15 @@ tooltip label {
 
 /* ── Workspaces ────────────────────────────────────────────── */
 #workspaces {
-    background-color: #222436;
+    background-color: @background;
     border-radius: 20px;
     padding: 0 4px;
 }
 #workspaces button {
     background: transparent;
-    color: #c8d3f5;
+    color: @color5;
+    opacity: 0.6;
     padding: 2px 6px;
-    margin: 1 0px;
     border-bottom: 2px solid transparent;
     border-radius: 0;
     transition: color 0.15s ease, border-color 0.15s ease;
@@ -125,23 +127,22 @@ tooltip label {
 }
 #workspaces button:hover {
     background: transparent;
-    color: #86e1fc;
+    color: @foreground;
     box-shadow: none;
 }
 #workspaces button.empty {
-    color: #828bb8;
-    opacity: 0.5;
+    color: @foreground;
 }
 #workspaces button.active {
-    color: #c8d3f5;
+    color: @color5;
     opacity: 1;
-    background-color: #3b4261;   /* dark pink tint */
+    background-color: #394b70; 
     border-radius: 20px;
     padding: 1px 15px;
 }
 #workspaces button.urgent {
-    color: #ff966c;
-    border-bottom: 2px solid #ff966c;
+    color: @foreground;
+    border-bottom: 2px solid @foreground;
 }
 #workspaces button:focus {
     box-shadow: none;
@@ -149,36 +150,36 @@ tooltip label {
 }
 
 /* ── Foreground colors ─────────────────────────────────────── */
-#window        { color: #b4f9f8; }
-#clock         { color: #ffc777; }
-#cpu           { color: #ff996c; }
-#memory        { color: #c099ff; }
-#temperature   { color: #ff996c; }
-#temperature.critical { color: #ff757f; }
-#disk          { color: #65bcff; }
-#backlight     { color: #82aaff; }
-#battery       { color: #c3e88f; }
+#window        { color: @color3; }
+#clock         { color: @color3; }
+#cpu           { color: @color1; }
+#memory        { color: @color5; }
+#temperature   { color: @color1; }
+#temperature.critical { color: @color1; }
+#disk          { color: @foreground; }
+#backlight     { color: @color6; }
+#battery       { color: @color2; }
 #battery.charging,
-#battery.plugged { color: #c3e88d; }
-#battery.warning:not(.charging) { color: #c3e88d; }
+#battery.plugged { color: @color2; }
+#battery.warning:not(.charging) { color: @color3; }
 #battery.critical:not(.charging) {
-    color: #ff966c;
+    color: @foreground;
     animation: blink 0.5s step-end infinite alternate;
 }
 @keyframes blink {
     to { color: transparent; }
 }
-#network            { color: #fca7ea; }
-#network.disconnected { color: #ffc777; }
-#pulseaudio         { color: #82aaff; }
-#pulseaudio.muted   { color: #82aaff; }
-#pulseaudio-microphone { color: #82aaff; }
-#pulseaudio-microphone.muted { color: #ff757f; }
-#custom-spotify  { color: #4fd6be; }
-#custom-weather  { color: #86e1fc; }
-#custom-pacman   { color: #7aa2f7; }
-#custom-next     { color: #4fd6be; }
-#custom-before   { color: #4fd6be; }
+#network            { color: @color5; }
+#network.disconnected { color: @color5; }
+#pulseaudio         { color: @color6; }
+#pulseaudio.muted   { color: @color6; }
+#pulseaudio-microphone { color: @color3; }
+#pulseaudio-microphone.muted { color: @color3; }
+#custom-spotify  { color: @color4; }
+#custom-weather  { color: @color4; }
+#custom-pacman   { color: @foreground; }
+#custom-next     { color: @foreground; }
+#custom-before   { color: @foreground; }
 #custom-separator {
     color: #4a6668;
     background: transparent;
@@ -189,7 +190,7 @@ tooltip label {
 
 /* ── group/cpu island ──────────────────────────────────────── */
 #cpu {
-    background-color: #222436;
+    background-color: @background;
     border-radius: 20px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -203,7 +204,7 @@ tooltip label {
 
 /* ── group/hw island ───────────────────────────────────────── */
 #hw {
-    background-color: #222436;
+    background-color: @background;
     border-radius: 20px;
     padding: 2px 4px;
     margin: 3px 2px;

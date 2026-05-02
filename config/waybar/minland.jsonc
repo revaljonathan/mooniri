@@ -10,20 +10,15 @@
     
     "modules-left": [
         "niri/workspaces",
-        "group/cpu",
-        "memory",
-        "battery"
     ],
 
     "modules-center": [
         "clock",
-         "custom/weather"
     ],
     "modules-right": [
-    	// "battery",
+    	"battery",
         "group/hw",
         "network",
-        "group/music"
     ],
 
     "custom/separator": {
@@ -43,8 +38,8 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " {:%A, %d %B %H:%M}",
-               "format-alt": " {:%H:%M}",
+        "format": " {:%H:%M}",
+        "format-alt": " {:%A, %d %B %H:%M}",
     },
     "cpu": {
         "format": " {usage}%",
@@ -63,7 +58,7 @@
     },
     "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent}%",
+    "format": "{icon}",
     "format-icons": ["", "", ""],
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-",
@@ -95,12 +90,12 @@
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
-        "format-disconnected": "󱛅",
+        "format-disconnected": "󱛅 ",
         "on-click": "~/.local/bin/wifi.sh"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": " {volume}%",
+        "format": "",
         //"format-bluetooth": "{volume}% {icon} {format_s" , //ource}",
         //"format-bluetooth-muted": "󰅶 {icon} {format_source}",
         "format-muted": "󰅶" , //{format_source}",
@@ -111,7 +106,7 @@
 
     "pulseaudio#microphone": {
     "format": "{format_source}",
-    "format-source": " {volume}%",
+    "format-source": "",
     "format-source-muted": "",
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
@@ -147,9 +142,8 @@
 
 
        "custom/spotify": {
-        "max-length": 35,
+        "max-length": 25,
 	    "exec": "~/.local/bin/spotify.sh",
-    "exec-if": "pgrep spotify",
 	    "interval": 5,
         "on-click": "playerctl next",
         "on-click-right": "playerctl previous",
@@ -171,7 +165,7 @@
         "modules": [
             "pulseaudio#microphone",
             "pulseaudio",
-            "backlight",
+            "backlight"
         ]
     },
 

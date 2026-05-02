@@ -4,21 +4,22 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1200, // Waybar width
-    "spacing": 2, // Gaps between modules (4px)
+    "spacing": 15, // Gaps between modules (4px)
     
     "modules-left": [
-        "niri/workspaces"
-        //"niri/window"
     ],
     "modules-center": [
-        "clock"
+        "niri/workspaces",
+        "clock",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "custom/separator",
+        "battery"
+
     ],
     "modules-right": [
-    "backlight",
-    	"pulseaudio",
-        "network",
-          "custom/separator",
-          "battery"
+
       ],
     "custom/separator": {
         "format": "|",
