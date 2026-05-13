@@ -2,54 +2,25 @@ input {
     keyboard {
         xkb {
             options "caps:escape"
-
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
-        }
+                 }
         numlock
     }
 
     touchpad {
-        // off
-        tap
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
-        natural-scroll
+                tap
+               natural-scroll
         accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
-    }
+        }
 
     mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "no-scroll"
-    }
+         }
 
     trackpoint {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // scroll-button-lock
-        // middle-emulation
-    }
+         }
 
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="0%"
+       focus-follows-mouse max-scroll-amount="0%"
 }
 
 gestures {
@@ -72,8 +43,8 @@ output "eDP-1" {
 
 
 cursor {
-    xcursor-size 36
-    xcursor-theme "catppuccin-macchiato-peach-cursors"
+    xcursor-size 30
+    xcursor-theme "Bibata-Modern-Ice"
 }
 
 overview {
@@ -85,8 +56,11 @@ layer-rule {
     place-within-backdrop true
 }
 
+
+
+
 layout {
-    gaps 6
+    gaps 5
     background-color "transparent"
 
     center-focused-column "never"
@@ -110,7 +84,7 @@ layout {
         border {
         on
 
-        width 2
+        width 1.3
         active-color "#fca7ea"
         inactive-color "#1e2030"
 
@@ -126,21 +100,18 @@ layout {
           }
 
     struts {
-        //left 
-        // right -6
-        // top 64
-        // bottom 64
-    }
+       }
 }
 
-spawn-at-startup "waybar"
+spawn-sh-at-startup "waybar -c ~/.config/waybar/verbcol.jsonc -s ~/.config/waybar/verbcol.css"
 //spawn-sh-at-startup "swaybg -m fill -i ~/pics/walls/3.png"
 spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
-spawn-at-startup "bash" "/home/revalbtw/.local/bin/gamma.sh"
+spawn-at-startup "/home/revalbtw/.local/bin/gamma.sh"
 spawn-at-startup "/home/revalbtw/.local/bin/sleep.sh"
 spawn-at-startup "dunst"
+spawn-at-startup "~/.local/bin/todo-daemon"
 
 hotkey-overlay {
     skip-at-startup
@@ -151,16 +122,18 @@ prefer-no-csd
 screenshot-path "~/pics/ss/ on %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // Uncomment to turn off all animations.
     // off
 
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }
 
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+}
+
+window-rule {
+    draw-border-with-background false
 }
 
 window-rule {
@@ -179,6 +152,12 @@ window-rule {
   open-maximized true
 }
 
+// window-rule {
+//     match app-id="org.pwmt.zathura"
+//     opacity 0.8
+// }
+
+
 window-rule {
   match title="Spotify"
   open-maximized true
@@ -189,13 +168,11 @@ window-rule {
     // Match the GTK portal window
     match app-id="xdg-desktop-portal-gtk"
     
-    // Set preferred dimensions in logical pixels
     min-width 700
     min-height 500 
     max-width 1000
     max-height 800
     
-    // Optionally force it to open floating if it isn't already
     open-floating true
 }
 
@@ -214,9 +191,15 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
     Mod+A { spawn "rofi" "-show" "window"; }
     Mod+S { spawn "~/.local/bin/browse.sh"; }
+    // Mod+C { spawn "~/.local/bin/theme.sh"; }
+    Mod+g { spawn "rofi" "-show" "calc"; }
     Mod+E { spawn "rofimoji"; }
+    Mod+space { spawn "~/.local/bin/filesearch.sh"; }
+    Mod+alt+space { spawn "~/.local/bin/filehid.sh"; }
     Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     Mod+P { spawn "~/.local/bin/power.sh"; }
+    Mod+T { spawn "~/.local/bin/todo.sh"; }
+    Mod+shift+T { spawn "~/.local/bin/tl.sh"; }
 
     Mod+Shift+S { spawn "sh" "-c" "swaylock -f && systemctl suspend"; }
 
@@ -237,6 +220,7 @@ binds {
     
 
     Mod+W repeat=false { toggle-overview; }
+    Mod+shift+escape { spawn-sh "kitty -e btop"; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -258,13 +242,7 @@ binds {
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
 
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
-
+ 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
@@ -288,14 +266,6 @@ binds {
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
-
-    // And you can also move a whole workspace to another monitor:
-    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    // ...
-
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
@@ -304,10 +274,6 @@ binds {
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
-
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
-    // ...
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
@@ -319,26 +285,11 @@ binds {
     Mod+Shift+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Shift+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    //Mod+WheelScrollRight      { focus-column-right; }
-    //Mod+WheelScrollLeft  { focus-column-left; }
-    //Mod+Ctrl+WheelScrollRight { move-column-right; }
-    //Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-
-    // Usually scrolling up and down with Shift in applications results in
-    // horizontal scrolling; these binds replicate that.
     Mod+WheelScrollDown      { focus-column-right; }
     Mod+WheelScrollUp        { focus-column-left; }
     Mod+Shift+WheelScrollDown { move-column-right; }
     Mod+Shift+WheelScrollUp   { move-column-left; }
    
-    // Similarly, you can bind touchpad scroll "ticks".
-    // Touchpad scrolling is continuous, so for these binds it is split into
-    // discrete intervals.
-    // These binds are also affected by touchpad's natural-scroll, so these
-    // example binds are "inverted", since we have natural-scroll enabled for
-    // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
@@ -358,12 +309,6 @@ binds {
     Mod+shift+7 { move-column-to-workspace 7; }
     Mod+shift+8 { move-column-to-workspace 8; }
     Mod+shift+9 { move-column-to-workspace 9; }
-
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
-    // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
@@ -372,20 +317,12 @@ binds {
     
    
     Mod+R { switch-preset-column-width; }
-    // Cycling through the presets in reverse order is also possible.
-    // Mod+R { switch-preset-column-width-back; }
-    Mod+Shift+R { switch-preset-window-height; }
+      Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-
-    // Expand the focused column to space not taken up by other fully visible columns.
-    // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+C { center-column; }
-
-    // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
 
     Mod+Minus { set-column-width "-10%"; }
@@ -400,10 +337,8 @@ binds {
 
 
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    Mod+t { toggle-window-floating; }
+    // Mod+t { toggle-window-floating; }
 
-    Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }

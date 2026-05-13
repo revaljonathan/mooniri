@@ -9,7 +9,6 @@ timestr=%H:%M:%S
 datestr=%a, %e of %B
 
 color=222436
-image=~/pics/walls/16.png
 bs-hl-color=fca7ea
 caps-lock-bs-hl-color=fca7ea
 caps-lock-key-hl-color=c3e88d
