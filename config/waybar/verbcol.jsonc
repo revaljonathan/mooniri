@@ -1,18 +1,17 @@
 // -*- mode: jsonc -*-
 {
     "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "top", // Waybar position (top|bottom|left|right)
     "height": 32, // Waybar height (to be removed for auto height)
     "width": 1920, // Waybar width
-    "spacing": 2, // Gaps between modules (4px)
+    "spacing": 3, // Gaps between modules (4px)
        "margin-top": -4,
-    "margin-bottom": -7,
+    "margin-bottom": -4,
     
     "modules-left": [
         "niri/workspaces",
-        "group/cpu",
-        "memory",
-        "battery"
+        "niri/window"
+        // "custom/spotify"
     ],
 
     "modules-center": [
@@ -20,10 +19,10 @@
          "custom/weather"
     ],
     "modules-right": [
-    	// "battery",
+    	"battery",
+        "group/cpu",
+        "memory",
         "group/hw",
-        "network",
-        "group/music"
     ],
 
     "custom/separator": {
@@ -33,8 +32,8 @@
     },
     
     "niri/window": {
-    "format": "{}",
-    "max-length": 20,
+    "format": " {title:.40}",
+    "max-length": 40,
     "tooltip": true,
   "separate-outputs": true
 },
@@ -63,7 +62,7 @@
     },
     "backlight": {
     "device": "intel_backlight",
-    "format": "{icon} {percent}%",
+    "format": "{icon}",
     "format-icons": ["", "", ""],
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-",
@@ -91,7 +90,8 @@
     },
     "network": {
         "max-length": 15,
-        "format-wifi": " {essid} ({signalStrength}%)",
+        // "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗",
         "tooltip-format": "{ifname} via {gwaddr} 󰊗",
         "format-linked": "{ifname} (No IP) 󰊗",
@@ -128,26 +128,8 @@
     "return-type": "json"
 },
 
-    "custom/pacman": {
-        "exec": "~/.local/bin/pacman.sh",
-        "interval": 180,
-        "on-click": "kitty -e paru -Syu"
-    },
-
-
-
-
-"disk": {
-    "interval": 180,
-    "format-alt": " {used} / {total}",
-    "format": " {percentage_used}%",
-    "path": "/"
-},
-
-
-
        "custom/spotify": {
-        "max-length": 35,
+        "max-length": 30,
 	    "exec": "~/.local/bin/spotify.sh",
     "exec-if": "pgrep spotify",
 	    "interval": 5,
@@ -172,15 +154,7 @@
             "pulseaudio#microphone",
             "pulseaudio",
             "backlight",
+            "network"
         ]
     },
-
-    "group/music": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/spotify",
-      "custom/before",
-      "custom/next"
-    ]
-  },
 }

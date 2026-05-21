@@ -66,9 +66,9 @@ layout {
     center-focused-column "never"
 
        preset-column-widths {
-        proportion 0.33333
+        proportion 0.25
         proportion 0.5
-        proportion 0.66667
+        proportion 0.75
     }
 
        default-column-width { proportion 0.5; }
@@ -127,6 +127,14 @@ animations {
     // slowdown 3.0
 }
 
+// layer-rule {
+//     match namespace="waybar"
+//     background-effect {
+//         blur true
+//     }
+// }
+
+
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
@@ -184,24 +192,24 @@ window-rule {
 }
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
+    super+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    super+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
 
-    Mod+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
-    Mod+A { spawn "rofi" "-show" "window"; }
-    Mod+S { spawn "~/.local/bin/browse.sh"; }
-    // Mod+C { spawn "~/.local/bin/theme.sh"; }
-    Mod+g { spawn "rofi" "-show" "calc"; }
-    Mod+E { spawn "rofimoji"; }
-    Mod+space { spawn "~/.local/bin/filesearch.sh"; }
-    Mod+alt+space { spawn "~/.local/bin/filehid.sh"; }
-    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
-    Mod+P { spawn "~/.local/bin/power.sh"; }
-    Mod+T { spawn "~/.local/bin/todo.sh"; }
-    Mod+shift+T { spawn "~/.local/bin/tl.sh"; }
+    super+D hotkey-overlay-title="Run an Application: rofi -show drun" { spawn "rofi" "-show" "drun"; }
+    super+A { spawn "rofi" "-show" "window"; }
+    super+S { spawn "~/.local/bin/browse.sh"; }
+    // super+C { spawn "~/.local/bin/theme.sh"; }
+    super+g { spawn "rofi" "-show" "calc"; }
+    super+E { spawn "rofimoji"; }
+    super+space { spawn "~/.local/bin/filesearch.sh"; }
+    super+alt+space { spawn "~/.local/bin/filehid.sh"; }
+    super+V { spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    super+P { spawn "~/.local/bin/power.sh"; }
+    super+T { spawn "~/.local/bin/todo.sh"; }
+    super+shift+T { spawn "~/.local/bin/tl.sh"; }
 
-    Mod+Shift+S { spawn "sh" "-c" "swaylock -f && systemctl suspend"; }
+    super+Shift+S { spawn "sh" "-c" "swaylock -f && systemctl suspend"; }
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
@@ -219,139 +227,139 @@ binds {
     XF86MonBrightnessDown { spawn "~/.local/bin/dunstback.sh" "down"; }
     
 
-    Mod+W repeat=false { toggle-overview; }
-    Mod+shift+escape { spawn-sh "kitty -e btop"; }
+    super+W repeat=false { toggle-overview; }
+    super+shift+escape { spawn-sh "kitty -e btop"; }
 
-    Mod+Q repeat=false { close-window; }
+    super+Q repeat=false { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    super+Left  { focus-column-left; }
+    super+Down  { focus-window-down; }
+    super+Up    { focus-window-up; }
+    super+Right { focus-column-right; }
+    super+H     { focus-column-left; }
+    super+J     { focus-window-down; }
+    super+K     { focus-window-up; }
+    super+L     { focus-column-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    super+shift+Left  { move-column-left; }
+    super+shift+Down  { move-window-down; }
+    super+shift+Up    { move-window-up; }
+    super+shift+Right { move-column-right; }
+    super+shift+H     { move-column-left; }
+    super+shift+J     { move-window-down; }
+    super+shift+K     { move-window-up; }
+    super+shift+L     { move-column-right; }
 
  
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    super+Home { focus-column-first; }
+    super+End  { focus-column-last; }
+    super+Ctrl+Home { move-column-to-first; }
+    super+Ctrl+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    super+ctrl+Left  { focus-monitor-left; }
+    super+ctrl+Down  { focus-monitor-down; }
+    super+ctrl+Up    { focus-monitor-up; }
+    super+ctrl+Right { focus-monitor-right; }
+    super+ctrl+H     { focus-monitor-left; }
+    super+ctrl+J     { focus-monitor-down; }
+    super+ctrl+K     { focus-monitor-up; }
+    super+ctrl+L     { focus-monitor-right; }
 
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    super+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    super+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    super+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    super+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    super+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    super+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    super+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    super+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    super+Page_Down      { focus-workspace-down; }
+    super+Page_Up        { focus-workspace-up; }
+    super+U              { focus-workspace-down; }
+    super+I              { focus-workspace-up; }
+    super+Ctrl+Page_Down { move-column-to-workspace-down; }
+    super+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    super+Ctrl+U         { move-column-to-workspace-down; }
+    super+Ctrl+I         { move-column-to-workspace-up; }
 
-    Mod+Shift+Page_Down { move-workspace-down; }
-    Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    super+Shift+Page_Down { move-workspace-down; }
+    super+Shift+Page_Up   { move-workspace-up; }
+    super+Shift+U         { move-workspace-down; }
+    super+Shift+I         { move-workspace-up; }
 
-    Mod+Alt+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+Alt+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Shift+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Shift+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    super+Alt+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    super+Alt+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    super+Shift+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    super+Shift+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Mod+WheelScrollDown      { focus-column-right; }
-    Mod+WheelScrollUp        { focus-column-left; }
-    Mod+Shift+WheelScrollDown { move-column-right; }
-    Mod+Shift+WheelScrollUp   { move-column-left; }
+    super+WheelScrollDown      { focus-column-right; }
+    super+WheelScrollUp        { focus-column-left; }
+    super+Shift+WheelScrollDown { move-column-right; }
+    super+Shift+WheelScrollUp   { move-column-left; }
    
 
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+shift+1 { move-column-to-workspace 1; }
-    Mod+shift+2 { move-column-to-workspace 2; }
-    Mod+shift+3 { move-column-to-workspace 3; }
-    Mod+shift+4 { move-column-to-workspace 4; }
-    Mod+shift+5 { move-column-to-workspace 5; }
-    Mod+shift+6 { move-column-to-workspace 6; }
-    Mod+shift+7 { move-column-to-workspace 7; }
-    Mod+shift+8 { move-column-to-workspace 8; }
-    Mod+shift+9 { move-column-to-workspace 9; }
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    super+1 { focus-workspace 1; }
+    super+2 { focus-workspace 2; }
+    super+3 { focus-workspace 3; }
+    super+4 { focus-workspace 4; }
+    super+5 { focus-workspace 5; }
+    super+6 { focus-workspace 6; }
+    super+7 { focus-workspace 7; }
+    super+8 { focus-workspace 8; }
+    super+9 { focus-workspace 9; }
+    super+shift+1 { move-column-to-workspace 1; }
+    super+shift+2 { move-column-to-workspace 2; }
+    super+shift+3 { move-column-to-workspace 3; }
+    super+shift+4 { move-column-to-workspace 4; }
+    super+shift+5 { move-column-to-workspace 5; }
+    super+shift+6 { move-column-to-workspace 6; }
+    super+shift+7 { move-column-to-workspace 7; }
+    super+shift+8 { move-column-to-workspace 8; }
+    super+shift+9 { move-column-to-workspace 9; }
+    super+BracketLeft  { consume-or-expel-window-left; }
+    super+BracketRight { consume-or-expel-window-right; }
 
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
+    super+Comma  { consume-window-into-column; }
+    super+Period { expel-window-from-column; }
     
    
-    Mod+R { switch-preset-column-width; }
-      Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    super+R { switch-preset-column-width; }
+      super+Shift+R { switch-preset-window-height; }
+    super+Ctrl+R { reset-window-height; }
+    super+F { maximize-column; }
+    super+Shift+F { fullscreen-window; }
+    super+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+Ctrl+C { center-visible-columns; }
+    super+Ctrl+C { center-visible-columns; }
 
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
+    super+Minus { set-column-width "-10%"; }
+    super+Equal { set-column-width "+10%"; }
 
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    super+Shift+Minus { set-window-height "-10%"; }
+    super+Shift+Equal { set-window-height "+10%"; }
     
-    "Mod+Shift+N" { spawn "swaync-client" "-t"; }
-    "Mod+Shift+D" { spawn "swaync-client" "-d"; }
+    "super+Shift+N" { spawn "swaync-client" "-t"; }
+    "super+Shift+D" { spawn "swaync-client" "-d"; }
 
 
 
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    // Mod+t { toggle-window-floating; }
+    super+Shift+V { switch-focus-between-floating-and-tiling; }
+    // super+t { toggle-window-floating; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-      Mod+Z hotkey-overlay-title="wallpaper" { spawn "/home/revalbtw/.local/bin/wp.sh"; }
-    Mod+B { spawn "/home/revalbtw/.local/bin/barsel.sh"; }
-    Mod+shift+B { spawn "/home/revalbtw/.local/bin/pywal.sh"; }
-    Mod+x { spawn-sh "hyprpicker | wl-copy"; }
+      super+Z hotkey-overlay-title="wallpaper" { spawn "/home/revalbtw/.local/bin/wp.sh"; }
+    super+B { spawn "/home/revalbtw/.local/bin/barsel.sh"; }
+    super+shift+B { spawn "/home/revalbtw/.local/bin/pywal.sh"; }
+    super+x { spawn-sh "hyprpicker | wl-copy"; }
 
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Mod+Shift+E { quit; }
+    super+Shift+E { spawn-sh "kitty zsh -ic yazi"; }
     Ctrl+Alt+Delete { quit; }
 
-    // Mod+Shift+P { power-off-monitors; }
+    // super+Shift+P { power-off-monitors; }
 }

@@ -6,12 +6,12 @@
     min-height: 0;
 }
 window#waybar {
-    /* background-color: rgba(30,24,38, 0.4); */
+    /* background-color: rgba(25,27,41, 0.5); */
     background-color: transparent;
-    color: #65bcff;
+    color: #c8d3f5;
 }
 tooltip {
-    background-color: #222436;
+    background-color: #1e2030;
     border: 1px solid #3a5456;
     color: #c8d3f5;
     border-radius: 0px;
@@ -47,16 +47,14 @@ tooltip label {
 #custom-pacman,
 #custom-separator,
 #window {
-    background-color: #222436;
+    background-color: #1e2030;
     border-radius: 0px;
     padding: 2px 10px;
     margin: 3px 2px;
 }
 
-/* ── group/cpu island (cpu + temperature) ──────────────────── */
-/* The group box itself gets the pill background */
 #.module-group {
-    background-color: #222436;
+    background-color: #1e2030;
     border-radius: 0px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -70,9 +68,8 @@ tooltip label {
     padding: 2px 6px;
 }
 
-/* ── group/hw island (mic + speaker + backlight) ───────────── */
 #hw.module-group {
-    background-color: #222436;
+    background-color: #1e2030;
     border-radius: 0px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -86,9 +83,8 @@ tooltip label {
     padding: 2px 6px;
 }
 
-/* ── group/music island ─────────────────────────────────────── */
 #music.module-group {
-    background-color: #222436;
+    background-color: #1e2030;
     border-radius: 0px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -106,9 +102,8 @@ tooltip label {
 /* These reset any pill styling when the module is OUTSIDE a group  */
 
 
-/* ── Workspaces ────────────────────────────────────────────── */
 #workspaces {
-    background-color: #222436;
+    background-color: #1e2030;
     border-radius: 0px;
     padding: 0 4px;
 }
@@ -125,22 +120,22 @@ tooltip label {
 }
 #workspaces button:hover {
     background: transparent;
-    color: #86e1fc;
+    color: #c8d3f5;
     box-shadow: none;
 }
 #workspaces button.empty {
-    color: #828bb8;
+    color: #c8d3f5;
     opacity: 0.5;
 }
 #workspaces button.active {
     color: #1e2030;
     opacity: 1;
-    background-color: #828bb8;   /* dark pink tint */
+    background: linear-gradient(to right,#82aaff, #82abf0);
     border-radius: 0px;
     padding: 1px 15px;
 }
 #workspaces button.urgent {
-    color: #ff966c;
+    color: #c8d3f5;
     border-bottom: 2px solid #ff966c;
 }
 #workspaces button:focus {
@@ -149,38 +144,38 @@ tooltip label {
 }
 
 /* ── Foreground colors ─────────────────────────────────────── */
-#window        { color: #b4f9f8; }
-#clock         { color: #ffc777; }
-#cpu           { color: #ff996c; }
-#memory        { color: #c099ff; }
-#temperature   { color: #ff996c; }
-#temperature.critical { color: #ff757f; }
-#disk          { color: #65bcff; }
-#backlight     { color: #82aaff; }
-#battery       { color: #c3e88f; }
+#window        { color: #c8d3f5; }
+#clock         { color: #c8d3f5; }
+#cpu           { color: #c8d3f5; }
+#memory        { color: #c8d3f5; }
+#temperature   { color: #c8d3f5; }
+#temperature.critical { color: #c8d3f5; }
+#disk          { color: #c8d3f5; }
+#backlight     { color: #c8d3f5; }
+#battery       { color: #c8d3f5; }
 #battery.charging,
-#battery.plugged { color: #c3e88d; }
-#battery.warning:not(.charging) { color: #c3e88d; }
+#battery.plugged { color: #c8d3f5; }
+#battery.warning:not(.charging) { color: #c8d3f5; }
 #battery.critical:not(.charging) {
-    color: #ff966c;
+    color: #c8d3f5;
     animation: blink 0.5s step-end infinite alternate;
 }
 @keyframes blink {
     to { color: transparent; }
 }
-#network            { color: #fca7ea; }
-#network.disconnected { color: #ffc777; }
-#pulseaudio         { color: #82aaff; }
-#pulseaudio.muted   { color: #82aaff; }
-#pulseaudio-microphone { color: #82aaff; }
-#pulseaudio-microphone.muted { color: #ff757f; }
-#custom-spotify  { color: #4fd6be; }
-#custom-weather  { color: #86e1fc; }
-#custom-pacman   { color: #7aa2f7; }
-#custom-next     { color: #4fd6be; }
-#custom-before   { color: #4fd6be; }
+#network            { color: #c8d3f5; }
+#network.disconnected { color: #c8d3f5; }
+#pulseaudio         { color: #c8d3f5; }
+#pulseaudio.muted   { color: #c8d3f5; }
+#pulseaudio-microphone { color: #c8d3f5; }
+#pulseaudio-microphone.muted { color: #c8d3f5; }
+#custom-spotify  { color: #c8d3f5; }
+#custom-weather  { color: #c8d3f5; }
+#custom-pacman   { color: #c8d3f5; }
+#custom-next     { color: #c8d3f5; }
+#custom-before   { color: #c8d3f5; }
 #custom-separator {
-    color: #4a6668;
+    color: #c8d3f5;
     background: transparent;
     padding: 0 2px;
     margin: 0;
@@ -189,7 +184,8 @@ tooltip label {
 
 /* ── group/cpu island ──────────────────────────────────────── */
 #cpu {
-    background-color: #222436;
+    /* background: linear-gradient(to right,#ff996c, #c8d3f5); */
+    background-color: #1e2030;
     border-radius: 0px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -203,7 +199,8 @@ tooltip label {
 
 /* ── group/hw island ───────────────────────────────────────── */
 #hw {
-    background-color: #222436;
+        /* background: linear-gradient(to right,#82aaff, #c8d3f5); */
+    background-color: #1e2030;
     border-radius: 0px;
     padding: 2px 4px;
     margin: 3px 2px;
@@ -217,3 +214,24 @@ tooltip label {
 scrollbar {
     background: transparent;
 }
+
+
+/* #battery { */
+/*     background: linear-gradient(to right,#82aaff, #c8d3f5); */
+/* } */
+/**/
+/* #network { */
+/*         background: linear-gradient(to right,#c099ff, #c8d3f5); */
+/* } */
+/**/
+/* #memory { */
+/*         background: linear-gradient(to right,#ff996c, #c8d3f5); */
+/* } */
+
+/* #custom-weather { */
+/*     background: linear-gradient(to right,#86e1fc, #c8d3f5); */
+/* } */
+
+
+
+
