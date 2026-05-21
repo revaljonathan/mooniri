@@ -103,7 +103,7 @@ layout {
        }
 }
 
-spawn-sh-at-startup "waybar -c ~/.config/waybar/verbcol.jsonc -s ~/.config/waybar/verbcol.css"
+spawn-sh-at-startup "waybar -c ~/.config/waybar/verbcol.jsonc -s ~/.config/waybar/mono.css"
 //spawn-sh-at-startup "swaybg -m fill -i ~/pics/walls/3.png"
 spawn-at-startup "sh" "-c" "swaybg -m fill -i \"$(cat $HOME/.config/wallpaper)\""
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
