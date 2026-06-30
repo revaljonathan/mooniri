@@ -1,0 +1,182 @@
+{
+    "$schema":"https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.jso",
+    "logo": {
+    "type": "auto",
+        "source": "/home/revalbtw/.config/fastfetch/cat.txt",
+        "position": "left",
+    //        "width": 15,
+    // "height": 4,
+    "padding": {
+        "top": 1,
+        "left": 0,
+        "right": 2,
+        "bottom": 0
+        }
+},
+    "color": {
+        "1": "#eed49f",
+        "2": "#e5c890",
+        "6": "#f5a97f",
+        "7": "#fab387",
+        "8": "#f9e2af",
+        "9": "#ef9f76"
+    },
+    "display": {
+    	"stat": false,
+        "size": {
+        "binaryPrefix": "jedec"
+    },
+        "separator": " "
+    },
+    
+"modules": [
+
+  
+     {
+			"type": "os",
+			"key": "╭─󰣇",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "kernel",
+			"key": "├─",
+			"format": "{1} {2}",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "packages",
+			"key": "├─󰮯",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "de",
+			"key": "├─",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "wm",
+			"key": "├─",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "lm",
+			"key": "├─󰧨",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "theme",
+			"key": "├─󰉼",
+			"keyColor": "magenta"
+		},
+		{
+			"type": "icons",
+			"key": "╰─󰀻",
+			"keyColor": "magenta"
+		},
+		"break",
+		// One entry for every partition
+		{
+			"type": "disk",
+			"key": "╭─",
+			"keyColor": "green"
+		},
+		{
+			"type": "brightness",
+			"key": "├─󰃞",
+			"keyColor": "green"
+		},
+		// {
+		// 	"type": "battery",
+		// 	"key": "├─",
+		// 	"keyColor": "green"
+		// },
+		// {
+		// 	"type": "poweradapter",
+		// 	"key": "├─",
+		// 	"keyColor": "green"
+		// },
+		// {
+		// 	"type": "gamepad",
+		// 	"key": "├─",
+		// 	"keyColor": "green"
+		// },
+		// {
+		// 	"type": "bluetooth",
+		// 	"key": "├─",
+		// 	"keyColor": "green"
+		// },
+		// {
+		// 	"type": "sound",
+		// 	"key": "╰─",
+		// 	"keyColor": "green"
+		// },
+		{
+			"type": "terminal",
+			"key": "├─",
+			"keyColor": "green"
+		},
+		{
+			"type": "terminalfont",
+			"key": "├─",
+			"keyColor": "green"
+		},
+		{
+			"type": "shell",
+			"key": "╰─",
+			"keyColor": "green"
+		},
+		"break",
+		{
+			"type": "host",
+			"key": "╭─",
+			"keyColor": "yellow"
+		},
+		{
+			"type": "cpu",
+			"key": "├─󰍛",
+			"keyColor": "yellow"
+		},
+		{
+			"type": "gpu",
+			"key": "├─󰘚",
+			"keyColor": "yellow"
+		},
+		{
+			"type": "display",
+			"key": "├─󰍹",
+			"keyColor": "yellow"
+		},
+		// {
+		// 	"type": "wallpaper",
+		// 	"key": "╰─󰸉",
+		// 	"keyColor": "yellow"
+		// },
+		{
+			"type": "memory",
+			"key": "├─󰑭",
+			"keyColor": "yellow"
+		},
+		// {
+		// 	"type": "swap",
+		// 	"key": "├─󰓡",
+		// 	"keyColor": "yellow"
+		// },
+		{
+			"type": "uptime",
+			"key": "├─󰅐",
+			"keyColor": "yellow"
+		},
+        {
+    "type": "command",
+    "key": "╰─󱦟",
+    "keyColor": "yellow",
+    "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+},
+		// {
+		// 	"type": "custom",
+		// 	"format": "         \u001b[1m\u001b[31m  \u001b[1m\u001b[32m  \u001b[1m\u001b[33m  \u001b[1m\u001b[34m  \u001b[1m\u001b[35m  \u001b[1m\u001b[36m  \u001b[1m\u001b[37m  \u001b[1m\u001b[30m    "
+		// }
+
+]
+    
+}
